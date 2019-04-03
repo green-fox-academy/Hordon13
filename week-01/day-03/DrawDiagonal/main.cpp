@@ -1,0 +1,32 @@
+#include <iostream>
+
+int main(int argc, char *args[]) {
+    // Write a program that reads a number from the standard input, then draws a
+    // square like this:
+    //
+    //
+    // %%%%%
+    // %%  %
+    // % % %
+    // %  %%
+    // %%%%%
+    //
+    // The square should have as many lines as the number was
+
+    int num;
+    std::cout << "What is your number?" << std::endl;
+    std::cin >> num;
+
+    for (int i = 0; i <= num; ++i) {
+        for (int j = 0; j <= num; ++j) {
+            if (i == 0 || i == num| i == j || j == 0 || j == num ){
+                std::cout << "%";
+            } else {
+                std::cout << " ";
+            }
+        }
+        std::cout << "\n";
+    }
+
+    return 0;
+}

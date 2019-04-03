@@ -10,8 +10,8 @@ int main(int argc, char *args[]) {
     // day if the current time is represented by the variables
 
     int dayInSec = 24 * 60 * 60;
-    int currentInSec = currentHours * 60 * 60 + currentMinutes * 60 + currentMinutes;
-
+    int currentInSec = currentHours * 60 * 60 + currentMinutes * 60 + currentSeconds;
+    
     std::cout << dayInSec - currentInSec << std::endl;
 
     return 0;

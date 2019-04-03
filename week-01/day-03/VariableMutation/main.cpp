@@ -62,6 +62,6 @@ int main(int argc, char* args[]) {
     // tell if j is dividable by 3 or 5 (print as a boolean)
 
     std::cout << (j % 3 == 0 || j % 5 == 0) << std::endl;
-    
+
     return 0;
 }

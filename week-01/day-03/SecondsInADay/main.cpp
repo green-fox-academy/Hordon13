@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main(int argc, char* args[]) {
+int main(int argc, char *args[]) {
 
     int currentHours = 14;
     int currentMinutes = 34;
@@ -9,10 +9,10 @@ int main(int argc, char* args[]) {
     // Write a program that prints the remaining seconds (as an integer) from a
     // day if the current time is represented by the variables
 
+    int dayInSec = 24 * 60 * 60;
+    int currentInSec = currentHours * 60 * 60 + currentMinutes * 60 + currentMinutes;
 
-    std::cout << 24-currentHours << ":";
-    std::cout << 60-currentMinutes << ":";
-    std::cout << 60-currentSeconds << std::endl;
+    std::cout << dayInSec - currentInSec << std::endl;
 
     return 0;
 }

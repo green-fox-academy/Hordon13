@@ -14,8 +14,6 @@ int main(int argc, char* args[]) {
     int numSize = sizeof(numbers) / sizeof(int);
     unique(numbers, numSize);
 
-
-
     //  should print: `[1, 11, 34, 52, 61]`
 
     return 0;
@@ -23,22 +21,16 @@ int main(int argc, char* args[]) {
 
 void unique(int ar[], int size){
 
-    int newArray[8]{};
+    int collect[size];
 
     for (int i = 0; i < size; ++i) {
-        int temp1 = ar[i];
-        for (int j = 0; j < size; ++j) {
-            int temp2 = ar[j];
-            if (temp1 != temp2){
-                newArray[i] = temp1;
-            } else if (temp1 == temp2 && j > i ) {
-                newArray[i] = temp1;
+        int num1 = ar[i];
+        for (int j = 1; j < size; ++j) {
+            int num2 = ar[j];
+            if(num1 != num2){
+                collect[i] = num1;
+                break;
             }
         }
-
-    }
-
-    for (int i = 0; i < 8; ++i) {
-        std::cout << newArray[i] << std::endl;
     }
 }

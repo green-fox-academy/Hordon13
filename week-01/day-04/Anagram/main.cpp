@@ -1,27 +1,41 @@
 #include <iostream>
 #include <string>
 
-        std::string palindrome(std::string);
+bool anagram(std::string, std::string, int);
 
 int main(int argc, char *args[]) {
 
-    std::string word;
+    std::string first;
+    std::string second;
 
-    std::cout << "Your word?" << std::endl;
-    std::cin >> word;
+    std::cout << "Your first word?" << std::endl;
+    std::cin >> first;
 
-    std::cout << palindrome(word) << std::endl;
+    std::cout << "Your second word?" << std::endl;
+    std::cin >> second;
+
+    int size = first.length();
+
+    std::cout << anagram(first, second, size) << std::endl;
 
     return 0;
 }
 
-std::string palindrome(std::string input) {
+bool anagram(std::string input1, std::string input2, int len) {
 
-    std::string reversed;
-    int len = input.length();
+    std::string test;
+
     for (int i = 0; i < len; ++i) {
-        reversed += input.at(len-1 - i);
+        char letter = input1.at(i);
+
+        for (int j = 0; j < len; ++j) {
+            char match = input2.at(j);
+            if (letter == match){
+                test += letter;
+                break;
+            }
+        }
     }
 
-    return(input + reversed);
+    return(input1 == test);
 }

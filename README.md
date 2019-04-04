@@ -4,15 +4,16 @@ Hi there! In this repository you can see how a caterpillar could become a butter
 
 ## Follow the journey...
 
-* [WEEK #01](https://github.com/green-fox-academy/Hordon13/tree/master/week-01) - Foundation 
+* [WEEK #01](https://github.com/green-fox-academy/Hordon13/tree/master/week-01) - Foundation Module
 	* DAY #01 - Team-building
 	* [DAY #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-01/day-02) - GitHub basics
 	* [DAY #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-01/day-03) - First lines of C++
+	* [DAY #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-01/day-04) - Functions, arrays
 
 ## Technologies I used...
 
 * at my studies:
-	* [Praat scripting](https://github.com/Hordon13/Praat) - It is a scientific speech analyser software)
+	* Praat scripts - It is a powerful tool for phonetics
 	* A little MatLab, R and Python
 	* Basic HTML, CSS and WordPress
 * at GreenFox Academy (so far):

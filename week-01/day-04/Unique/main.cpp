@@ -53,6 +53,6 @@ void unique(int ar[], int size) {
 }
 
 void occurrence(int arr[], int size){
-    
+
 
 }

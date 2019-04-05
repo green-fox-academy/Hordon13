@@ -18,15 +18,16 @@ int main(int argc, char *args[]) {
     std::cin >> num;
 
     for (int i = 0; i < num; ++i) {
-        for (int j = 0; j < (2 * num) - 1; ++j) {
-            for (int k = 0; k < num-1; ++k) {
-                std::cout << " ";
-            }
-            for (int l = 0; l < 2 * num; ++l) {
-                std::cout << "*";
-            }
-            std::cout << "\n";
+
+        for (int j = 0; j < (num - 1) - i; ++j) {
+            std::cout << " ";
         }
+
+        for (int k = 1; k < (2 * (i + 1)); ++k) {
+            std::cout << "*";
+        }
+
+        std::cout << "\n";
     }
 
     return 0;

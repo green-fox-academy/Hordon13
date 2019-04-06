@@ -1,8 +1,11 @@
 #include <iostream>
 #include <string>
 
+void selectionSort(int[], int);
+
 void unique(int[], int);
-void occurrence(int[], int);
+
+void print(int[], int);
 
 int main(int argc, char *args[]) {
 
@@ -10,49 +13,55 @@ int main(int argc, char *args[]) {
     //  Don't forget you have pass the size of the list as a parameter as well
     //  Returns a list of numbers where every number in the list occurs only once
 
-    //  Example
-    int numbers[] = {1, 11, 34, 11, 52, 61, 0, 1, 34, 1};
-    int numSize = sizeof(numbers) / sizeof(int);
-    unique(numbers, numSize);
+    int numbers[] = {1, 11, 34, 11, 52, 61, 0, 1, 34, 1, 61, 72};
+    int size = sizeof(numbers) / sizeof(int);
 
-    //  should print: `[1, 11, 34, 52, 61]`
+    unique(numbers, size);
 
     return 0;
 }
 
-void unique(int ar[], int size) {
+void unique(int arr[], int size) {
 
-    int check[size];
+    selectionSort(arr, size);
+    int newSize = 1;
 
-    //int newSize = 0;
-
-    for (int i = 0; i < size; ++i) {
-        int sum = 0;
-
-        for (int j = 0; j < size; ++j) {
-            if (ar[i] == ar[j] && i != j) {
-                //voltemar
-                //if
-                ++sum;
-            }
+    for (int i = 0; i < size - 1; ++i) {
+        if (arr[i] < arr[i + 1]) {
+            newSize++;
         }
-        check[i] = sum;
     }
 
+    int newArray[newSize];
 
-    // Print
-    for (int k = 0; k < size; ++k) {
-        std::cout << check[k] << " ";
+    int index = 0;
+    for (int i = 0; i < size - 1; ++i) {
+        if (arr[i] < arr[i + 1]) {
+            newArray[index] = arr[i];
+            ++index;
+        }
     }
-    std::cout << "\n";
 
-    for (int k = 0; k < size; ++k) {
-        //std::cout << collect[k] << " ";
-    }
-    std::cout << "\n";
+    newArray[newSize - 1] = arr[size - 1];
+    print(newArray, newSize);
 }
 
-void occurrence(int arr[], int size){
+void selectionSort(int arr[], int size) {
 
+    for (int i = 0; i < size; i++) {
+        int min = i;
+        for (int j = i; j < size; j++) {
+            if (arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+        std::swap(arr[i], arr[min]);
+    }
+}
 
+void print(int arr[], int size) {
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
 }

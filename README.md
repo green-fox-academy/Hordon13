@@ -9,6 +9,9 @@ Hi there! In this repository you can see how a caterpillar could become a butter
 	* [DAY #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-01/day-02) - GitHub basics
 	* [DAY #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-01/day-03) - First lines of C++
 	* [DAY #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-01/day-04) - Functions, arrays
+	* DAY #05 - Practice
+* [WEEK #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-02) - Foundation Module
+	* [DAY #01](https://github.com/green-fox-academy/Hordon13/tree/master/week-02/day-01) - Pointers
 
 ## Technologies I used...
 

@@ -20,12 +20,19 @@ SDL_Window* gWindow = nullptr;
 //The window renderer
 SDL_Renderer* gRenderer = nullptr;
 
+void toCenter(int, int);
+
 void draw()
 {
     // Create a line drawing function that takes 2 parameters:
     // The x and y coordinates of the line's starting point
     // and draws a line from that point to the center of the canvas.
     // Draw at least 3 lines with that function. Use loop for that.
+
+    for (int i = 0; i < 3; ++i) {
+        toCenter(i*65, i*100);
+    }
+
 }
 
 bool init()
@@ -110,4 +117,9 @@ int main( int argc, char* args[] )
     close();
 
     return 0;
+}
+
+void toCenter (int x, int y){
+    SDL_SetRenderDrawColor(gRenderer, 255, 0, 0, 1);
+    SDL_RenderDrawLine(gRenderer, x, y, SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
 }

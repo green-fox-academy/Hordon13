@@ -3,7 +3,7 @@
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_HEIGHT = 640;
 
 //Draws geometry on the canvas
 void draw();
@@ -15,65 +15,62 @@ bool init();
 void close();
 
 //The window we'll be rendering to
-SDL_Window* gWindow = nullptr;
+SDL_Window *gWindow = nullptr;
 
 //The window renderer
-SDL_Renderer* gRenderer = nullptr;
+SDL_Renderer *gRenderer = nullptr;
 
-void draw()
-{
+void steps(int);
+
+void draw() {
     // Reproduce this:
     // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps/r3.png]
     // Pay attention for the outlines as well
+
+    steps(20);
 }
 
-bool init()
-{
+bool init() {
     //Initialize SDL
-    if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-    {
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         std::cout << "SDL could not initialize! SDL Error: " << SDL_GetError() << std::endl;
         return false;
     }
 
     //Create window
-    gWindow = SDL_CreateWindow( "Purple steps", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
-    if( gWindow == nullptr )
-    {
+    gWindow = SDL_CreateWindow("Purple steps", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
+                               SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    if (gWindow == nullptr) {
         std::cout << "Window could not be created! SDL Error: " << SDL_GetError() << std::endl;
         return false;
     }
 
     //Create renderer for window
-    gRenderer = SDL_CreateRenderer( gWindow, -1, SDL_RENDERER_ACCELERATED );
-    if( gRenderer == nullptr )
-    {
+    gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED);
+    if (gRenderer == nullptr) {
         std::cout << "Renderer could not be created! SDL Error: " << SDL_GetError() << std::endl;
         return false;
     }
 
     //Initialize renderer color
-    SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+    SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
     return true;
 }
 
-void close()
-{
+void close() {
     //Destroy window
-    SDL_DestroyRenderer( gRenderer );
-    SDL_DestroyWindow( gWindow );
+    SDL_DestroyRenderer(gRenderer);
+    SDL_DestroyWindow(gWindow);
     gWindow = nullptr;
     gRenderer = nullptr;
 
     SDL_Quit();
 }
 
-int main( int argc, char* args[] )
-{
+int main(int argc, char *args[]) {
     //Start up SDL and create window
-    if( !init() )
-    {
+    if (!init()) {
         std::cout << "Failed to initialize!" << std::endl;
         close();
         return -1;
@@ -86,7 +83,7 @@ int main( int argc, char* args[] )
     SDL_Event e;
 
     //While application is running
-    while( !quit ) {
+    while (!quit) {
         //Handle events on queue
         while (SDL_PollEvent(&e) != 0) {
             //User requests quit
@@ -109,4 +106,20 @@ int main( int argc, char* args[] )
     close();
 
     return 0;
+}
+
+void steps(int sqSize) {
+    double w = SCREEN_WIDTH;
+    double h = SCREEN_HEIGHT;
+    double scDiag = sqrt(w * w + h * h) * 0.66;
+    double sqDiag = sqrt(sqSize * sqSize + sqSize * sqSize);
+    int numSquares = scDiag / sqDiag;
+
+    for (int i = 0; i < numSquares; ++i) {
+        SDL_SetRenderDrawColor(gRenderer, 148, 0, 211, 1);
+        SDL_Rect sq = {i * sqSize, i * sqSize, sqSize, sqSize};
+        SDL_RenderFillRect(gRenderer, &sq);
+        SDL_SetRenderDrawColor(gRenderer, 0, 0, 0, 1);
+        SDL_RenderDrawRect(gRenderer, &sq);
+    }
 }

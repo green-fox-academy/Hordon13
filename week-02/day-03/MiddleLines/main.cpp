@@ -25,6 +25,12 @@ void draw()
 {
     // draw a red horizontal line to the canvas' middle.
     // draw a green vertical line to the canvas' middle.
+    SDL_SetRenderDrawColor(gRenderer, 255, 0, 0, 1);
+    SDL_RenderDrawLine(gRenderer, 0, SCREEN_HEIGHT/2, SCREEN_WIDTH, SCREEN_HEIGHT/2);
+
+    SDL_SetRenderDrawColor(gRenderer, 0, 128, 0, 1);
+    SDL_RenderDrawLine(gRenderer, SCREEN_WIDTH/2, 0, SCREEN_WIDTH/2, SCREEN_HEIGHT);
+
 }
 
 bool init()

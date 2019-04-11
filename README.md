@@ -14,6 +14,7 @@ Hi there! In this repository you can see how a caterpillar could become a butter
 	* [DAY #01](https://github.com/green-fox-academy/Hordon13/tree/master/week-02/day-01) - Pointers
 	* [DAY #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-02/day-02) - Strings, vectors, maps
 	* [DAY #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-02/day-03) - Draw with SDL2
+	* [DAY #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-02/day-03) - Recursion
 
 ## Technologies I used...
 

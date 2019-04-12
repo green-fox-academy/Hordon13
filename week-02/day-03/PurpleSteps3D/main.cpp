@@ -20,15 +20,16 @@ SDL_Window *gWindow = nullptr;
 //The window renderer
 SDL_Renderer *gRenderer = nullptr;
 
-void steps(int);
+void purpleSteps3D(int);
 
 void draw() {
     // Reproduce this:
     // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps-3d/r4.png]
     // Pay attention for the outlines as well
 
-    steps(20);
+    purpleSteps3D(20);
 }
+
 
 bool init() {
     //Initialize SDL
@@ -108,7 +109,7 @@ int main(int argc, char *args[]) {
     return 0;
 }
 
-void steps(int sqSize) {
+void purpleSteps3D(int sqSize) {
 
     double maxSize = SCREEN_WIDTH * 0.75;
 
@@ -122,7 +123,8 @@ void steps(int sqSize) {
     int position = 0;
     for (int i = 0; i < numSq; ++i) {
         SDL_SetRenderDrawColor(gRenderer, 148, 0, 211, 1);
-        SDL_Rect sq = {position, position, i * sqSize + sqSize, i * sqSize + sqSize};
+        SDL_Rect sq = {position, position,
+                       i * sqSize + sqSize, i * sqSize + sqSize};
         SDL_RenderFillRect(gRenderer, &sq);
         SDL_SetRenderDrawColor(gRenderer, 0, 0, 0, 1);
         SDL_RenderDrawRect(gRenderer, &sq);

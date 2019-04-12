@@ -2,8 +2,8 @@
 #include <SDL.h>
 
 //Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 700;
+const int SCREEN_HEIGHT = 700;
 
 //Draws geometry on the canvas
 void draw();
@@ -20,8 +20,12 @@ SDL_Window *gWindow = nullptr;
 //The window renderer
 SDL_Renderer *gRenderer = nullptr;
 
+void fractal(double, double, double);
+
 void draw() {
     // Create the fractal here
+
+    fractal(SCREEN_WIDTH, 0, 0);
 
 }
 
@@ -101,4 +105,25 @@ int main(int argc, char *args[]) {
     close();
 
     return 0;
+}
+
+void fractal(double size, double x, double y) {
+    if (size / 2 <= 1) {
+        return;
+    }
+
+    SDL_SetRenderDrawColor(gRenderer, 0, 0, 0, 1);
+    // A -» B
+    SDL_RenderDrawLine(gRenderer, x, y, size + x, y);
+    // B -» C
+    SDL_RenderDrawLine(gRenderer, size + x, y, size / 2 + x, size + y);
+    // C -» A
+    SDL_RenderDrawLine(gRenderer, size / 2 + x, size + y, x, y);
+
+    fractal(size / 2, x, y);
+    fractal(size / 2, x + size / 2, y);
+    fractal(size / 2, x + size / 4, y + size / 2);
+
+    return;
+
 }

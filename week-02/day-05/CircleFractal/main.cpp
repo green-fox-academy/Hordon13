@@ -1,9 +1,10 @@
 #include <iostream>
 #include <SDL.h>
+#include <SDL2_gfxPrimitives.h>
 
 //Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 800;
 
 //Draws geometry on the canvas
 void draw();
@@ -20,12 +21,17 @@ SDL_Window *gWindow = nullptr;
 //The window renderer
 SDL_Renderer *gRenderer = nullptr;
 
-void draw() {
-    // Create the fractal here
+void fractal(int, int, int);
+
+void draw()
+{
+
+    fractal(SCREEN_WIDTH / 2, SCREEN_WIDTH / 2, SCREEN_WIDTH / 2 - 10);
 
 }
 
-bool init() {
+bool init()
+{
     //Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         std::cout << "SDL could not initialize! SDL Error: " << SDL_GetError() << std::endl;
@@ -53,7 +59,8 @@ bool init() {
     return true;
 }
 
-void close() {
+void close()
+{
     //Destroy window
     SDL_DestroyRenderer(gRenderer);
     SDL_DestroyWindow(gWindow);
@@ -63,7 +70,8 @@ void close() {
     SDL_Quit();
 }
 
-int main(int argc, char *args[]) {
+int main(int argc, char *args[])
+{
     //Start up SDL and create window
     if (!init()) {
         std::cout << "Failed to initialize!" << std::endl;
@@ -101,4 +109,20 @@ int main(int argc, char *args[]) {
     close();
 
     return 0;
+}
+
+void fractal(int x, int y, int r)
+{
+
+    if (r <= 20) {
+        return;
+    }
+
+    int mod = (r / 2) / sqrt(2);
+
+    circleRGBA(gRenderer, x, y, r, 0, 0, 0, 255);
+
+    fractal(x, y - r / 2, r / 2);
+    fractal(x - mod, y + mod, r / 2);
+    fractal(x + mod, y + mod, r / 2);
 }

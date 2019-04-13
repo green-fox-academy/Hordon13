@@ -2,8 +2,8 @@
 #include <SDL.h>
 
 //Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 840;
+const int SCREEN_HEIGHT = 840;
 
 //Draws geometry on the canvas
 void draw();
@@ -20,12 +20,18 @@ SDL_Window *gWindow = nullptr;
 //The window renderer
 SDL_Renderer *gRenderer = nullptr;
 
-void draw() {
-    // Create the fractal here
+void fractal(int, int, double);
 
+void square(int, int, int);
+
+void draw()
+{
+    // Create the fractal here
+    fractal(0, 0, SCREEN_WIDTH);
 }
 
-bool init() {
+bool init()
+{
     //Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         std::cout << "SDL could not initialize! SDL Error: " << SDL_GetError() << std::endl;
@@ -53,7 +59,8 @@ bool init() {
     return true;
 }
 
-void close() {
+void close()
+{
     //Destroy window
     SDL_DestroyRenderer(gRenderer);
     SDL_DestroyWindow(gWindow);
@@ -63,7 +70,8 @@ void close() {
     SDL_Quit();
 }
 
-int main(int argc, char *args[]) {
+int main(int argc, char *args[])
+{
     //Start up SDL and create window
     if (!init()) {
         std::cout << "Failed to initialize!" << std::endl;
@@ -101,4 +109,54 @@ int main(int argc, char *args[]) {
     close();
 
     return 0;
+}
+
+void fractal(int x, int y, double size)
+{
+    if (size < 1) {
+        return;
+    }
+
+    SDL_SetRenderDrawColor(gRenderer, 0, 0, 0, 1);
+    square(x + size / 9, y + size / 9, size / 9);
+    square(x + size / 9 * 4, y + size / 9, size / 9);
+    square(x + size / 9 * 7, y + size / 9, size / 9);
+
+    square(x + size / 9, y + size / 9 * 4, size / 9);
+    square(x + size / 9 * 4, y + size / 9 * 4, size / 9);
+    square(x + size / 9 * 7, y + size / 9 * 4, size / 9);
+
+    square(x + size / 9, y + size / 9 * 7, size / 9);
+    square(x + size / 9 * 4, y + size / 9 * 7, size / 9);
+    square(x + size / 9 * 7, y + size / 9 * 7, size / 9);
+
+    square(x + size / 9 * 3, y + size / 9 * 3, size / 9);
+    square(x + size / 9 * 3, y + size / 9 * 4, size / 9);
+    square(x + size / 9 * 3, y + size / 9 * 5, size / 9);
+
+    square(x + size / 9 * 4, y + size / 9 * 3, size / 9);
+    square(x + size / 9 * 4, y + size / 9 * 5, size / 9);
+
+    square(x + size / 9 * 5, y + size / 9 * 3, size / 9);
+    square(x + size / 9 * 5, y + size / 9 * 4, size / 9);
+    square(x + size / 9 * 5, y + size / 9 * 5, size / 9);
+
+    fractal(x, y, size / 3);
+    fractal(x + size / 3, y, size / 3);
+    fractal(x + size / 3 * 2, y, size / 3);
+
+    fractal(x, y + size / 3, size / 3);
+    fractal(x + size / 3 * 2, y + size / 3, size / 3);
+
+    fractal(x, y + size / 3 * 2, size / 3);
+    fractal(x + size / 3, y + size / 3 * 2, size / 3);
+    fractal(x + size / 3 * 2, y + size / 3 * 2, size / 3);
+
+}
+
+void square(int x, int y, int size)
+{
+    SDL_SetRenderDrawColor(gRenderer, 0, 0, 0, 1);
+    SDL_Rect rectFill{x, y, size, size};
+    SDL_RenderFillRect(gRenderer, &rectFill);
 }

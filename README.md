@@ -16,10 +16,13 @@ Hi there! In this repository you can see how a caterpillar could become a butter
 	* [DAY #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-02/day-03) - Draw with SDL2
 	* [DAY #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-02/day-03) - Recursion
 	* [DAY #05](https://github.com/green-fox-academy/Hordon13/tree/master/week-02/day-03) - Draw Fractals with Recursion
+* [WEEK #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-03) - Foundation Module
+	* DAY #01 - DOJO, Training
+	* [DAY #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-03/day-02) - File IO
 
 ## Technologies I used...
 
-* at my studies:
+* at my previous studies:
 	* Praat scripts - It is a powerful tool for phonetics
 	* A little MatLab, R and Python
 	* Basic HTML, CSS and WordPress

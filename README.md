@@ -19,6 +19,7 @@ Hi there! In this repository you can see how a caterpillar could become a butter
 * [WEEK #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-03) - Foundation Module
 	* DAY #01 - DOJO, Training
 	* [DAY #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-03/day-02) - File IO
+	* [DAY #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-03/day-03) - Classes
 
 ## Technologies I used...
 

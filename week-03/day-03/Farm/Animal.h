@@ -1,14 +1,29 @@
-//
-// Created by Horváth Donát on 2019-04-18.
-//
-
-#ifndef FARM_ANIMAL_H
-#define FARM_ANIMAL_H
+#ifndef ANIMAL_ANIMAL_H
+#define ANIMAL_ANIMAL_H
 
 
 class Animal {
+public:
+    Animal();
 
+    int getHunger() const;
+
+    void setHunger(int hunger);
+
+    int getThirst() const;
+
+    void setThirst(int thirst);
+
+    void eat();
+
+    void drink();
+
+    void play();
+
+private:
+    int hunger;
+    int thirst;
 };
 
 
-#endif //FARM_ANIMAL_H
+#endif

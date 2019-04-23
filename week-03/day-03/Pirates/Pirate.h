@@ -6,7 +6,7 @@
 
 class Pirate {
 public:
-    Pirate(int intoxication = 0, bool isLive = true);
+    Pirate(int intoxication = 0, bool isLive = true, bool isPassedOut = false);
 
     void drinkSomeRum();
 
@@ -14,7 +14,7 @@ public:
 
     void die();
 
-    void brawl(Pirate);
+    void brawl(Pirate &);
 
     int getIntoxication() const;
 
@@ -24,9 +24,14 @@ public:
 
     void setIntoxication(int intoxication);
 
+    void setIsPassedOut(bool isPassedOut);
+
+    bool isIsPassedOut() const;
+
 private:
     int _intoxication;
     bool _isLive;
+    bool _isPassedOut;
 
 };
 

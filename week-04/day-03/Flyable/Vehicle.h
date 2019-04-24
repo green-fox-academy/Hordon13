@@ -6,11 +6,14 @@
 #define FLYABLE_VEHICLE_H
 
 
-
 class Vehicle {
+public:
+    virtual void fillFuel() = 0;
 
+    virtual void park() = 0;
+
+    virtual void costPerKm() = 0;
 };
-
 
 
 #endif //FLYABLE_VEHICLE_H

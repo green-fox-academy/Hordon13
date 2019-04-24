@@ -7,7 +7,12 @@
 
 
 class Flyable {
+public:
+    virtual void land() = 0;
 
+    virtual void fly() = 0;
+
+    virtual void takeOf() = 0;
 };
 
 

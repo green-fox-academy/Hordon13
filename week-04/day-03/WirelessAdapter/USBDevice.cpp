@@ -3,3 +3,8 @@
 //
 
 #include "USBDevice.h"
+
+USBDevice::USBDevice(std::string id, int usbType) : Device(id)
+{
+    _usbType = usbType;
+}

@@ -9,8 +9,10 @@
 #include "NetworkDevice.h"
 
 class WirelessAdapter : public USBDevice, public NetworkDevice {
+public:
+    WirelessAdapter(std::string, int, int);
 
+    void info();
 };
-
 
 #endif //WIRELESSADAPTER_WIRELESSADAPTER_H

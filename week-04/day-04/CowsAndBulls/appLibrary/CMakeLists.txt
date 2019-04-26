@@ -1,0 +1,1 @@
+add_library(${PROJECT_LIB_NAME} feedback.cpp checkUserNum.cpp generateSecret.cpp)

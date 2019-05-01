@@ -17,7 +17,7 @@ int main()
         int secretNum = generate();
         std::string userInput;
         int userNum = 0;
-        int trials;
+        int trials = 0;
 
         do {
             std::cout << "Enter your guess: ";

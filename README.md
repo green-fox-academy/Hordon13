@@ -27,7 +27,13 @@ Hi there! In this repository you can see how a caterpillar could become a butter
 	* [DAY #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-04/day-02) - Inheritance
 	* [DAY #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-04/day-03) - Abstract Classes, Multiple Inheritance
 	* [DAY #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-04/day-04) - Unit tests, Google Test
-	* DAY #05 - Trial Exam
+	* DAY #05 - Trial Exam (score: 95.7%)
+* [WEEK #05]
+	* DAY #01 - Full week project: Wanderer The Game
+	* DAY #02 - Full week project: Wanderer The Game
+	* DAY #03 - Holyday
+	* DAY #04 - Full week project: Wanderer The Game
+	* DAY #05 - EXAM
 
 ## Technologies I used...
 

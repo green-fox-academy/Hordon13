@@ -7,4 +7,6 @@ int getIndex(int, std::vector<int>);
 
 bool anagram(std::string, std::string);
 
+std::string money(int);
+
 #endif

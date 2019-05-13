@@ -10,8 +10,7 @@ set(PROJECT_TESTS_NAME appTests)
 set(PATH_TO_GOOGLETEST "/Users/hordon/Desktop/GreenFox/googletest")
 
 # Change this to your project name (optional)
-set(PROJECT_NAME renameMe)
-
+set(PROJECT_NAME DOJO)
 
 project(${PROJECT_NAME})
 set(CMAKE_CXX_STANDARD 14)

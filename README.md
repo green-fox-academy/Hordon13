@@ -34,6 +34,8 @@ Hi there! In this repository you can see how a caterpillar could become a butter
 	* DAY #03 - Holyday
 	* DAY #04 - Full week project: Wanderer The Game
 	* DAY #05 - EXAM
+* [WEEK #06]
+	* [DAY #01](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-01) - DOJO, Training
 
 ## Technologies I used...
 

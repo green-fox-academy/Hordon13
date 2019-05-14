@@ -6,15 +6,21 @@
 // and return the area of that cirle
 // area = radius * radius * PI
 
+int area(double pi, double r)
+{
+    double area = r * r * pi;
+    printf("The area is: %.2f", area);
+}
+
 int main()
 {
     double pi = 3.14;
     double r;
+
     printf("Radius: ");
     scanf("%lf", &r);
 
-    double area = r * r * pi;
-    printf("The area is: %.2f", area);
+    area(pi, r);
 
     return 0;
 }

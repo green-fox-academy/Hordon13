@@ -60,7 +60,7 @@ int main()
 
     words[0] = "hello";
     words[1] = "geza";
-    
+
 
     //printf("%s", words[1]);
 

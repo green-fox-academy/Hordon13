@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // write a function which takes a string and an integer as a parameter.
 // The function should return a string where the input string is repeating. The number of repetition is based on the value of the integer parameter.
@@ -8,10 +9,12 @@
 
 char *repeat(char *string, int num)
 {
-    char *str = (char *) malloc(num + 1 * sizeof(string));
+    int size = num * strlen(string) + 1;
+    char *str = (char *) malloc(size * sizeof(char));
+    strcpy(str, string);
 
-    for (int i = 0; i < num; ++i) {
-
+    for (int i = 0; i < num - 1; ++i) {
+        strcat(str, string);
     }
 
     return str;
@@ -19,7 +22,7 @@ char *repeat(char *string, int num)
 
 int main()
 {
+    printf("%s", repeat("apple", 5));
 
-    fprintf("%s", repeat("apple", 5));
     return 0;
 }

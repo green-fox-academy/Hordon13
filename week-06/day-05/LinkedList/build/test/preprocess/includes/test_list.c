@@ -1,0 +1,4 @@
+---
+- "../src/list.h"
+- "../vendor/ceedling/vendor/unity/src/unity.h"
+- build/temp/_test_list.c

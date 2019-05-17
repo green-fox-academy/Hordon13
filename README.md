@@ -36,9 +36,10 @@ Hi there! In this repository you can see how a caterpillar could become a butter
 	* DAY #05 - EXAM
 * [WEEK #06]
 	* [DAY #01](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-01) - DOJO, Training
-	* [DAY #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-02) - DOJO, Training
-	* [DAY #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-03) - DOJO, Training
-	* [DAY #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-04) - DOJO, Training
+	* [DAY #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-02) - Basics of C
+	* [DAY #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-03) - Structures and custom types
+	* [DAY #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-04) - Dynamic memory allocation
+	* [DAY #05](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-05) - Advanced data structures + testing
 
 ## Technologies I used...
 
@@ -48,6 +49,9 @@ Hi there! In this repository you can see how a caterpillar could become a butter
 	* Basic HTML, CSS and WordPress
 * at GreenFox Academy (so far):
 	* C++
+	* C
+	* Google Test
+	* SDL 2
 
 ## More about me in a few words...
 

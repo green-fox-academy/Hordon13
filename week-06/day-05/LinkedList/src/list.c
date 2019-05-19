@@ -1,6 +1,16 @@
 #include "list.h"
 #include <stdlib.h>
 
+void freeAll(lnkd_list_t *head)
+{
+
+    while (head != NULL) {
+        lnkd_list_t *temp = head;
+        head = head->ptr;
+        free(temp);
+    }
+}
+
 void insertEnd(lnkd_list_t *head, int data)
 {
     lnkd_list_t *newNode = (lnkd_list_t *) malloc(sizeof(lnkd_list_t));
@@ -82,4 +92,16 @@ int deleteValue(lnkd_list_t *head, int value)
     }
 
     return count;
+}
+
+lnkd_list_t *search(lnkd_list_t *head, int value)
+{
+    lnkd_list_t *it = head;
+    while (it->ptr != NULL) {
+        if (it->ptr->data == value) {
+            return it->ptr;
+        }
+    }
+
+    return NULL;
 }

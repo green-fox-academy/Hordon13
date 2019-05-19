@@ -13,6 +13,8 @@ void test_insertEnd(void)
 
     TEST_ASSERT_EQUAL(0, head->ptr->data);
     TEST_ASSERT_EQUAL(5, head->ptr->ptr->data);
+
+    freeAll(head);
 }
 
 void test_insertBegin(void)
@@ -28,6 +30,8 @@ void test_insertBegin(void)
 
     TEST_ASSERT_EQUAL(3, head->ptr->data);
     TEST_ASSERT_EQUAL(5, head->ptr->ptr->data);
+
+    freeAll(head);
 }
 
 void test_insertAfter(void)
@@ -44,6 +48,8 @@ void test_insertAfter(void)
     insertAfter(head, head->ptr->ptr, 7);
 
     TEST_ASSERT_EQUAL(7, head->ptr->ptr->ptr->data);
+
+    freeAll(head);
 }
 
 void test_size(void)
@@ -61,6 +67,8 @@ void test_size(void)
     int result = size(head);
 
     TEST_ASSERT_EQUAL(5, result);
+
+    freeAll(head);
 }
 
 void test_emptyFalse(void)
@@ -78,6 +86,8 @@ void test_emptyFalse(void)
     int result = empty(head);
 
     TEST_ASSERT_FALSE(result)
+
+    freeAll(head);
 }
 
 void test_emptyTrue(void)
@@ -89,6 +99,8 @@ void test_emptyTrue(void)
     int result = empty(head);
 
     TEST_ASSERT_TRUE(result);
+
+    freeAll(head);
 }
 
 void test_delete(void)
@@ -109,6 +121,8 @@ void test_delete(void)
 
     TEST_ASSERT_EQUAL(10, head->ptr->data);
     TEST_ASSERT_EQUAL(4, result);
+
+    freeAll(head);
 }
 
 void test_deleteValueInListOnce(void)
@@ -129,6 +143,8 @@ void test_deleteValueInListOnce(void)
 
     TEST_ASSERT_EQUAL(1, result);
     TEST_ASSERT_EQUAL(4, sizeResult);
+
+    freeAll(head);
 }
 
 void test_deleteValueInListMultiple(void)
@@ -151,6 +167,8 @@ void test_deleteValueInListMultiple(void)
 
     TEST_ASSERT_EQUAL(3, result);
     TEST_ASSERT_EQUAL(4, sizeResult);
+
+    freeAll(head);
 }
 
 void test_deleteValueNotInList(void)
@@ -173,4 +191,6 @@ void test_deleteValueNotInList(void)
 
     TEST_ASSERT_EQUAL(0, result);
     TEST_ASSERT_EQUAL(7, sizeResult);
+
+    freeAll(head);
 }

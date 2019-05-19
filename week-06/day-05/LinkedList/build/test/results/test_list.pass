@@ -7,31 +7,31 @@
   :line: 5
   :message: ''
 - :test: test_insertBegin
-  :line: 18
+  :line: 20
   :message: ''
 - :test: test_insertAfter
-  :line: 33
+  :line: 37
   :message: ''
 - :test: test_size
-  :line: 49
+  :line: 55
   :message: ''
 - :test: test_emptyFalse
-  :line: 66
+  :line: 74
   :message: ''
 - :test: test_emptyTrue
-  :line: 83
+  :line: 93
   :message: ''
 - :test: test_delete
-  :line: 94
+  :line: 106
   :message: ''
 - :test: test_deleteValueInListOnce
-  :line: 114
+  :line: 128
   :message: ''
 - :test: test_deleteValueInListMultiple
-  :line: 134
+  :line: 150
   :message: ''
 - :test: test_deleteValueNotInList
-  :line: 156
+  :line: 174
   :message: ''
 :failures: []
 :ignores: []
@@ -41,4 +41,4 @@
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.006825000047683716
+:time: 0.00964700011536479

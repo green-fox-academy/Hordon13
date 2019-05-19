@@ -80,15 +80,15 @@ int main(void)
   suite_setup();
   UnityBegin("test_list.c");
   RUN_TEST(test_insertEnd, 5);
-  RUN_TEST(test_insertBegin, 18);
-  RUN_TEST(test_insertAfter, 33);
-  RUN_TEST(test_size, 49);
-  RUN_TEST(test_emptyFalse, 66);
-  RUN_TEST(test_emptyTrue, 83);
-  RUN_TEST(test_delete, 94);
-  RUN_TEST(test_deleteValueInListOnce, 114);
-  RUN_TEST(test_deleteValueInListMultiple, 134);
-  RUN_TEST(test_deleteValueNotInList, 156);
+  RUN_TEST(test_insertBegin, 20);
+  RUN_TEST(test_insertAfter, 37);
+  RUN_TEST(test_size, 55);
+  RUN_TEST(test_emptyFalse, 74);
+  RUN_TEST(test_emptyTrue, 93);
+  RUN_TEST(test_delete, 106);
+  RUN_TEST(test_deleteValueInListOnce, 128);
+  RUN_TEST(test_deleteValueInListMultiple, 150);
+  RUN_TEST(test_deleteValueNotInList, 174);
 
   return suite_teardown(UnityEnd());
 }

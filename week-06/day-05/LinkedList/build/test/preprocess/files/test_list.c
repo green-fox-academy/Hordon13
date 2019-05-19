@@ -25,6 +25,10 @@ void test_insertEnd(void)
 
     UnityAssertEqualNumber((UNITY_INT)((5)), (UNITY_INT)((head->ptr->ptr->data)), (((void *)0)), (UNITY_UINT)(15), UNITY_DISPLAY_STYLE_INT);
 
+
+
+    freeAll(head);
+
 }
 
 
@@ -51,9 +55,13 @@ void test_insertBegin(void)
 
 
 
-    UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((head->ptr->data)), (((void *)0)), (UNITY_UINT)(29), UNITY_DISPLAY_STYLE_INT);
+    UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((head->ptr->data)), (((void *)0)), (UNITY_UINT)(31), UNITY_DISPLAY_STYLE_INT);
 
-    UnityAssertEqualNumber((UNITY_INT)((5)), (UNITY_INT)((head->ptr->ptr->data)), (((void *)0)), (UNITY_UINT)(30), UNITY_DISPLAY_STYLE_INT);
+    UnityAssertEqualNumber((UNITY_INT)((5)), (UNITY_INT)((head->ptr->ptr->data)), (((void *)0)), (UNITY_UINT)(32), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    freeAll(head);
 
 }
 
@@ -85,7 +93,11 @@ void test_insertAfter(void)
 
 
 
-    UnityAssertEqualNumber((UNITY_INT)((7)), (UNITY_INT)((head->ptr->ptr->ptr->data)), (((void *)0)), (UNITY_UINT)(46), UNITY_DISPLAY_STYLE_INT);
+    UnityAssertEqualNumber((UNITY_INT)((7)), (UNITY_INT)((head->ptr->ptr->ptr->data)), (((void *)0)), (UNITY_UINT)(50), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    freeAll(head);
 
 }
 
@@ -119,7 +131,11 @@ void test_size(void)
 
 
 
-    UnityAssertEqualNumber((UNITY_INT)((5)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(63), UNITY_DISPLAY_STYLE_INT);
+    UnityAssertEqualNumber((UNITY_INT)((5)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(69), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    freeAll(head);
 
 }
 
@@ -153,7 +169,11 @@ void test_emptyFalse(void)
 
 
 
-    if (!(result)) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(80)));}
+    if (!(result)) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(88)));}
+
+
+
+    freeAll(head);
 
 }
 
@@ -175,7 +195,11 @@ void test_emptyTrue(void)
 
 
 
-    if ((result)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(91)));};
+    if ((result)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(101)));};
+
+
+
+    freeAll(head);
 
 }
 
@@ -213,9 +237,13 @@ void test_delete(void)
 
 
 
-    UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((head->ptr->data)), (((void *)0)), (UNITY_UINT)(110), UNITY_DISPLAY_STYLE_INT);
+    UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((head->ptr->data)), (((void *)0)), (UNITY_UINT)(122), UNITY_DISPLAY_STYLE_INT);
 
-    UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(111), UNITY_DISPLAY_STYLE_INT);
+    UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(123), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    freeAll(head);
 
 }
 
@@ -253,9 +281,13 @@ void test_deleteValueInListOnce(void)
 
 
 
-    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(130), UNITY_DISPLAY_STYLE_INT);
+    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(144), UNITY_DISPLAY_STYLE_INT);
 
-    UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((sizeResult)), (((void *)0)), (UNITY_UINT)(131), UNITY_DISPLAY_STYLE_INT);
+    UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((sizeResult)), (((void *)0)), (UNITY_UINT)(145), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    freeAll(head);
 
 }
 
@@ -297,9 +329,13 @@ void test_deleteValueInListMultiple(void)
 
 
 
-    UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(152), UNITY_DISPLAY_STYLE_INT);
+    UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(168), UNITY_DISPLAY_STYLE_INT);
 
-    UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((sizeResult)), (((void *)0)), (UNITY_UINT)(153), UNITY_DISPLAY_STYLE_INT);
+    UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((sizeResult)), (((void *)0)), (UNITY_UINT)(169), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    freeAll(head);
 
 }
 
@@ -341,8 +377,12 @@ void test_deleteValueNotInList(void)
 
 
 
-    UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(174), UNITY_DISPLAY_STYLE_INT);
+    UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(192), UNITY_DISPLAY_STYLE_INT);
 
-    UnityAssertEqualNumber((UNITY_INT)((7)), (UNITY_INT)((sizeResult)), (((void *)0)), (UNITY_UINT)(175), UNITY_DISPLAY_STYLE_INT);
+    UnityAssertEqualNumber((UNITY_INT)((7)), (UNITY_INT)((sizeResult)), (((void *)0)), (UNITY_UINT)(193), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    freeAll(head);
 
 }

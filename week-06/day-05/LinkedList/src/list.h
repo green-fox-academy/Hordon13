@@ -6,6 +6,8 @@ typedef struct lnkd_list_t {
     struct lnkd_list_t *ptr;
 } lnkd_list_t;
 
+void freeAll(lnkd_list_t *head);
+
 void insertEnd(lnkd_list_t *head, int data);
 
 void insertBegin(lnkd_list_t *head, int data);
@@ -19,5 +21,7 @@ int empty(lnkd_list_t *head);
 void delete(lnkd_list_t *head);
 
 int deleteValue(lnkd_list_t *head, int value);
+
+lnkd_list_t *search(lnkd_list_t *head, int value);
 
 #endif

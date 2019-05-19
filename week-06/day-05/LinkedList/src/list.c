@@ -58,3 +58,28 @@ int empty(lnkd_list_t *head)
 
     return 1;
 }
+
+void delete(lnkd_list_t *head)
+{
+    lnkd_list_t *temp = head->ptr->ptr;
+    free(head->ptr);
+    head->ptr = temp;
+}
+
+int deleteValue(lnkd_list_t *head, int value)
+{
+    int count = 0;
+    lnkd_list_t *it = head;
+    while (it->ptr != NULL) {
+        if (it->ptr->data == value) {
+            lnkd_list_t *temp = it->ptr->ptr;
+            free(it->ptr);
+            it->ptr = temp;
+            count++;
+            continue;
+        }
+        it = it->ptr;
+    }
+
+    return count;
+}

@@ -16,4 +16,8 @@ int size(lnkd_list_t *head);
 
 int empty(lnkd_list_t *head);
 
+void delete(lnkd_list_t *head);
+
+int deleteValue(lnkd_list_t *head, int value);
+
 #endif

@@ -178,3 +178,171 @@ void test_emptyTrue(void)
     if ((result)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(91)));};
 
 }
+
+
+
+void test_delete(void)
+
+{
+
+    lnkd_list_t *head = (lnkd_list_t *) malloc(sizeof(lnkd_list_t));
+
+    head->data = -1;
+
+    head->ptr = ((void *)0);
+
+
+
+
+
+    insertEnd(head, 0);
+
+    insertEnd(head, 5);
+
+    insertBegin(head, 10);
+
+    insertBegin(head, 15);
+
+    insertAfter(head, head->ptr->ptr, 7);
+
+
+
+    delete(head);
+
+    int result = size(head);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((head->ptr->data)), (((void *)0)), (UNITY_UINT)(110), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(111), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_deleteValueInListOnce(void)
+
+{
+
+    lnkd_list_t *head = (lnkd_list_t *) malloc(sizeof(lnkd_list_t));
+
+    head->data = -1;
+
+    head->ptr = ((void *)0);
+
+
+
+
+
+    insertEnd(head, 0);
+
+    insertEnd(head, 5);
+
+    insertBegin(head, 10);
+
+    insertBegin(head, 15);
+
+    insertAfter(head, head->ptr->ptr, 7);
+
+
+
+    int result = deleteValue(head, 7);
+
+    int sizeResult = size(head);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(130), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((sizeResult)), (((void *)0)), (UNITY_UINT)(131), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_deleteValueInListMultiple(void)
+
+{
+
+    lnkd_list_t *head = (lnkd_list_t *) malloc(sizeof(lnkd_list_t));
+
+    head->data = -1;
+
+    head->ptr = ((void *)0);
+
+
+
+
+
+    insertEnd(head, 0);
+
+    insertEnd(head, 5);
+
+    insertBegin(head, 10);
+
+    insertBegin(head, 7);
+
+    insertBegin(head, 15);
+
+    insertAfter(head, head->ptr->ptr, 7);
+
+    insertEnd(head, 7);
+
+
+
+    int result = deleteValue(head, 7);
+
+    int sizeResult = size(head);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(152), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((sizeResult)), (((void *)0)), (UNITY_UINT)(153), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_deleteValueNotInList(void)
+
+{
+
+    lnkd_list_t *head = (lnkd_list_t *) malloc(sizeof(lnkd_list_t));
+
+    head->data = -1;
+
+    head->ptr = ((void *)0);
+
+
+
+
+
+    insertEnd(head, 0);
+
+    insertEnd(head, 5);
+
+    insertBegin(head, 10);
+
+    insertBegin(head, 7);
+
+    insertBegin(head, 15);
+
+    insertAfter(head, head->ptr->ptr, 7);
+
+    insertEnd(head, 7);
+
+
+
+    int result = deleteValue(head, 8);
+
+    int sizeResult = size(head);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(174), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((7)), (UNITY_INT)((sizeResult)), (((void *)0)), (UNITY_UINT)(175), UNITY_DISPLAY_STYLE_INT);
+
+}

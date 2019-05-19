@@ -41,6 +41,10 @@ extern void test_insertAfter(void);
 extern void test_size(void);
 extern void test_emptyFalse(void);
 extern void test_emptyTrue(void);
+extern void test_delete(void);
+extern void test_deleteValueInListOnce(void);
+extern void test_deleteValueInListMultiple(void);
+extern void test_deleteValueNotInList(void);
 
 
 /*=======Suite Setup=====*/
@@ -81,6 +85,10 @@ int main(void)
   RUN_TEST(test_size, 49);
   RUN_TEST(test_emptyFalse, 66);
   RUN_TEST(test_emptyTrue, 83);
+  RUN_TEST(test_delete, 94);
+  RUN_TEST(test_deleteValueInListOnce, 114);
+  RUN_TEST(test_deleteValueInListMultiple, 134);
+  RUN_TEST(test_deleteValueNotInList, 156);
 
   return suite_teardown(UnityEnd());
 }

@@ -386,3 +386,47 @@ void test_deleteValueNotInList(void)
     freeAll(head);
 
 }
+
+
+
+void test_search(void)
+
+{
+
+    lnkd_list_t *head = (lnkd_list_t *) malloc(sizeof(lnkd_list_t));
+
+    head->data = -1;
+
+    head->ptr = ((void *)0);
+
+
+
+
+
+    insertEnd(head, 0);
+
+    insertEnd(head, 5);
+
+    insertBegin(head, 10);
+
+    insertBegin(head, 7);
+
+    insertBegin(head, 15);
+
+    insertAfter(head, head->ptr->ptr, 7);
+
+    insertEnd(head, 7);
+
+
+
+
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((head->ptr->ptr->ptr->ptr->data)), (UNITY_INT)((search(head, 10)->data)), (((void *)0)), (UNITY_UINT)(215), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    freeAll(head);
+
+}

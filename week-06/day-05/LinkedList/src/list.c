@@ -98,8 +98,8 @@ lnkd_list_t *search(lnkd_list_t *head, int value)
 {
     lnkd_list_t *it = head;
     while (it->ptr != NULL) {
-        if (it->ptr->data == value) {
-            return it->ptr;
+        if (it->data == value) {
+            return it;
         }
     }
 

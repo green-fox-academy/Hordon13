@@ -194,3 +194,26 @@ void test_deleteValueNotInList(void)
 
     freeAll(head);
 }
+
+void test_search(void)
+{
+    lnkd_list_t *head = (lnkd_list_t *) malloc(sizeof(lnkd_list_t));
+    head->data = -1;
+    head->ptr = NULL;
+
+    //15, 7, 7, 10, 0, 5, 7
+    insertEnd(head, 0);
+    insertEnd(head, 5);
+    insertBegin(head, 10);
+    insertBegin(head, 7);
+    insertBegin(head, 15);
+    insertAfter(head, head->ptr->ptr, 7);
+    insertEnd(head, 7);
+
+    //todo: why it is not working? :(
+    //lnkd_list_t *result = search(head, 10);
+
+    TEST_ASSERT_EQUAL(head->ptr->ptr->ptr->ptr->data, search(head, 10)->data);
+
+    freeAll(head);
+}

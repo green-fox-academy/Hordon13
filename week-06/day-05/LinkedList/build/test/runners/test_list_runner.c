@@ -45,6 +45,7 @@ extern void test_delete(void);
 extern void test_deleteValueInListOnce(void);
 extern void test_deleteValueInListMultiple(void);
 extern void test_deleteValueNotInList(void);
+extern void test_search(void);
 
 
 /*=======Suite Setup=====*/
@@ -89,6 +90,7 @@ int main(void)
   RUN_TEST(test_deleteValueInListOnce, 128);
   RUN_TEST(test_deleteValueInListMultiple, 150);
   RUN_TEST(test_deleteValueNotInList, 174);
+  RUN_TEST(test_search, 198);
 
   return suite_teardown(UnityEnd());
 }

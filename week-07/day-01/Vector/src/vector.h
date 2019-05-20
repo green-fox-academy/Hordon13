@@ -29,4 +29,6 @@ void pop_back(vector_t *vector);
 
 void deleteIndex(vector_t *vector, int index);
 
+int search_vector(vector_t *vector, int value);
+
 #endif

@@ -207,3 +207,26 @@ void test_deleteIndex(void)
 
     free_vector(&myVector);
 }
+
+void test_search(void)
+{
+    vector_t myVector;
+    init_vector(&myVector);
+
+    push_back(&myVector, 1);
+    push_back(&myVector, 2);
+    push_back(&myVector, 3);
+    push_back(&myVector, 4);
+    push_back(&myVector, 5);
+
+    int index = search_vector(&myVector, 4);
+
+    TEST_ASSERT_EQUAL(3, index);
+
+    int index2 = search_vector(&myVector, 7);
+
+    TEST_ASSERT_EQUAL(-1, index2);
+
+    free_vector(&myVector);
+}
+

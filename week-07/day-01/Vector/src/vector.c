@@ -86,3 +86,14 @@ void deleteIndex(vector_t *vector, int index)
         printf("Delete error: invalid index");
     }
 }
+
+int search_vector(vector_t *vector, int value)
+{
+    for (int i = 0; i < vector->size; ++i) {
+        if (vector->data[i] == value) {
+            return i;
+        }
+    }
+
+    return -1;
+}

@@ -412,3 +412,47 @@ void test_deleteIndex(void)
     free_vector(&myVector);
 
 }
+
+
+
+void test_search(void)
+
+{
+
+    vector_t myVector;
+
+    init_vector(&myVector);
+
+
+
+    push_back(&myVector, 1);
+
+    push_back(&myVector, 2);
+
+    push_back(&myVector, 3);
+
+    push_back(&myVector, 4);
+
+    push_back(&myVector, 5);
+
+
+
+    int index = search_vector(&myVector, 4);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((index)), (((void *)0)), (UNITY_UINT)(224), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    int index2 = search_vector(&myVector, 7);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((-1)), (UNITY_INT)((index2)), (((void *)0)), (UNITY_UINT)(228), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    free_vector(&myVector);
+
+}

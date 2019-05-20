@@ -251,3 +251,30 @@ void test_shuffle(void)
 
     free_vector(&myVector);
 }
+
+void test_unique(void)
+{
+    vector_t myVector;
+    init_vector(&myVector);
+
+    push_back_vector(&myVector, 1);
+    push_back_vector(&myVector, 1);
+    push_back_vector(&myVector, 1);
+    push_back_vector(&myVector, 2);
+    push_back_vector(&myVector, 2);
+    push_back_vector(&myVector, 3);
+    push_back_vector(&myVector, 3);
+    push_back_vector(&myVector, 4);
+    push_back_vector(&myVector, 4);
+    push_back_vector(&myVector, 5);
+    push_back_vector(&myVector, 5);
+
+    TEST_ASSERT_EQUAL(11, myVector.size);
+
+    unique_vector(&myVector);
+
+    TEST_ASSERT_EQUAL(5, myVector.size);
+    TEST_ASSERT_EQUAL(12, myVector.capacity);
+
+    free_vector(&myVector);
+}

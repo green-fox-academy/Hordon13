@@ -125,3 +125,21 @@ void shuffle_vector(vector_t *vector)
     free_vector(&temp);
     free_vector(&randomNumbers);
 }
+
+void unique_vector(vector_t *vector)
+{
+    vector_t unique;
+    init_vector(&unique);
+
+    for (int i = 0; i < vector->size; ++i) {
+        if (search_vector(&unique, vector->data[i]) == -1) {
+            push_back_vector(&unique, vector->data[i]);
+        }
+    }
+
+    vector->data = unique.data;
+    vector->size = unique.size;
+    capacity_check_vector(vector);
+
+    free_vector(&unique);
+}

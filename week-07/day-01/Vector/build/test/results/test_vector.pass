@@ -39,13 +39,16 @@
 - :test: test_shuffle
   :line: 233
   :message: ''
+- :test: test_unique
+  :line: 255
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 12
-  :passed: 12
+  :total: 13
+  :passed: 13
   :failed: 0
   :ignored: 0
 :stdout:
 - 'Insert error: invalid index'
-:time: 0.007023999933153391
+:time: 0.005917999893426895

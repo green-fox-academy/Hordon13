@@ -81,7 +81,7 @@ void test_push_back(void)
 
 
 
-    push_back(&myVector, 10);
+    push_back_vector(&myVector, 10);
 
 
 
@@ -93,7 +93,7 @@ void test_push_back(void)
 
 
 
-    push_back(&myVector, 3);
+    push_back_vector(&myVector, 3);
 
 
 
@@ -123,13 +123,13 @@ void test_insert(void)
 
 
 
-    push_back(&myVector, 2);
+    push_back_vector(&myVector, 2);
 
-    push_back(&myVector, 5);
+    push_back_vector(&myVector, 5);
 
-    push_back(&myVector, 10);
+    push_back_vector(&myVector, 10);
 
-    push_back(&myVector, 15);
+    push_back_vector(&myVector, 15);
 
 
 
@@ -139,7 +139,7 @@ void test_insert(void)
 
 
 
-    insert(&myVector, 7, 2);
+    insert_vector(&myVector, 7, 2);
 
 
 
@@ -157,7 +157,7 @@ void test_insert(void)
 
 
 
-    insert(&myVector, 23, 4);
+    insert_vector(&myVector, 23, 4);
 
 
 
@@ -189,13 +189,13 @@ void test_insertInvalid(void)
 
 
 
-    push_back(&myVector, 2);
+    push_back_vector(&myVector, 2);
 
-    push_back(&myVector, 5);
+    push_back_vector(&myVector, 5);
 
-    push_back(&myVector, 10);
+    push_back_vector(&myVector, 10);
 
-    push_back(&myVector, 15);
+    push_back_vector(&myVector, 15);
 
 
 
@@ -205,7 +205,7 @@ void test_insertInvalid(void)
 
 
 
-    insert(&myVector, 7, 4);
+    insert_vector(&myVector, 7, 4);
 
 
 
@@ -231,11 +231,11 @@ void test_size(void)
 
 
 
-    push_back(&myVector, 2);
+    push_back_vector(&myVector, 2);
 
-    push_back(&myVector, 5);
+    push_back_vector(&myVector, 5);
 
-    push_back(&myVector, 10);
+    push_back_vector(&myVector, 10);
 
 
 
@@ -263,11 +263,11 @@ void test_capacity(void)
 
 
 
-    push_back(&myVector, 2);
+    push_back_vector(&myVector, 2);
 
-    push_back(&myVector, 5);
+    push_back_vector(&myVector, 5);
 
-    push_back(&myVector, 10);
+    push_back_vector(&myVector, 10);
 
 
 
@@ -303,7 +303,7 @@ void test_empty(void)
 
 
 
-    push_back(&myVector, 2);
+    push_back_vector(&myVector, 2);
 
 
 
@@ -331,15 +331,15 @@ void test_pop_back(void)
 
 
 
-    push_back(&myVector, 1);
+    push_back_vector(&myVector, 1);
 
-    push_back(&myVector, 2);
+    push_back_vector(&myVector, 2);
 
-    push_back(&myVector, 3);
+    push_back_vector(&myVector, 3);
 
-    push_back(&myVector, 4);
+    push_back_vector(&myVector, 4);
 
-    push_back(&myVector, 5);
+    push_back_vector(&myVector, 5);
 
 
 
@@ -349,7 +349,7 @@ void test_pop_back(void)
 
 
 
-    pop_back(&myVector);
+    pop_back_vector(&myVector);
 
 
 
@@ -377,15 +377,15 @@ void test_deleteIndex(void)
 
 
 
-    push_back(&myVector, 1);
+    push_back_vector(&myVector, 1);
 
-    push_back(&myVector, 2);
+    push_back_vector(&myVector, 2);
 
-    push_back(&myVector, 3);
+    push_back_vector(&myVector, 3);
 
-    push_back(&myVector, 4);
+    push_back_vector(&myVector, 4);
 
-    push_back(&myVector, 5);
+    push_back_vector(&myVector, 5);
 
 
 
@@ -397,7 +397,7 @@ void test_deleteIndex(void)
 
 
 
-    deleteIndex(&myVector, 2);
+    deleteIndex_vector(&myVector, 2);
 
 
 
@@ -425,15 +425,15 @@ void test_search(void)
 
 
 
-    push_back(&myVector, 1);
+    push_back_vector(&myVector, 1);
 
-    push_back(&myVector, 2);
+    push_back_vector(&myVector, 2);
 
-    push_back(&myVector, 3);
+    push_back_vector(&myVector, 3);
 
-    push_back(&myVector, 4);
+    push_back_vector(&myVector, 4);
 
-    push_back(&myVector, 5);
+    push_back_vector(&myVector, 5);
 
 
 
@@ -469,15 +469,15 @@ void test_shuffle(void)
 
 
 
-    push_back(&myVector, 1);
+    push_back_vector(&myVector, 1);
 
-    push_back(&myVector, 2);
+    push_back_vector(&myVector, 2);
 
-    push_back(&myVector, 3);
+    push_back_vector(&myVector, 3);
 
-    push_back(&myVector, 4);
+    push_back_vector(&myVector, 4);
 
-    push_back(&myVector, 5);
+    push_back_vector(&myVector, 5);
 
 
 
@@ -494,6 +494,60 @@ void test_shuffle(void)
     UnityAssertEqualNumber((UNITY_INT)((8)), (UNITY_INT)((myVector.capacity)), (((void *)0)), (UNITY_UINT)(249), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((5)), (UNITY_INT)((myVector.size)), (((void *)0)), (UNITY_UINT)(250), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    free_vector(&myVector);
+
+}
+
+
+
+void test_unique(void)
+
+{
+
+    vector_t myVector;
+
+    init_vector(&myVector);
+
+
+
+    push_back_vector(&myVector, 1);
+
+    push_back_vector(&myVector, 1);
+
+    push_back_vector(&myVector, 1);
+
+    push_back_vector(&myVector, 2);
+
+    push_back_vector(&myVector, 2);
+
+    push_back_vector(&myVector, 3);
+
+    push_back_vector(&myVector, 3);
+
+    push_back_vector(&myVector, 4);
+
+    push_back_vector(&myVector, 4);
+
+    push_back_vector(&myVector, 5);
+
+    push_back_vector(&myVector, 5);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((11)), (UNITY_INT)((myVector.size)), (((void *)0)), (UNITY_UINT)(272), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    unique_vector(&myVector);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((5)), (UNITY_INT)((myVector.size)), (((void *)0)), (UNITY_UINT)(276), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((12)), (UNITY_INT)((myVector.capacity)), (((void *)0)), (UNITY_UINT)(277), UNITY_DISPLAY_STYLE_INT);
 
 
 

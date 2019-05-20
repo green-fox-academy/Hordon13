@@ -33,4 +33,6 @@ int search_vector(vector_t *vector, int value);
 
 void shuffle_vector(vector_t *vector);
 
+void unique_vector(vector_t *vector);
+
 #endif

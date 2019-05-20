@@ -17,4 +17,6 @@ void capacity_check_vector(vector_t *vector);
 
 void push_back(vector_t *vector, int value);
 
+void insert(vector_t *vector, int value, int index);
+
 #endif

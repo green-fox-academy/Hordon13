@@ -12,12 +12,19 @@
 - :test: test_push_back
   :line: 39
   :message: ''
+- :test: test_insert
+  :line: 60
+  :message: ''
+- :test: test_insertInvalid
+  :line: 91
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 3
-  :passed: 3
+  :total: 5
+  :passed: 5
   :failed: 0
   :ignored: 0
-:stdout: []
-:time: 0.009087000042200089
+:stdout:
+- 'Error: invalid index for this vector'
+:time: 0.006347999908030033

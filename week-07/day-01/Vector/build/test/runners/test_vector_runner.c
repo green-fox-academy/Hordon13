@@ -38,6 +38,8 @@ extern void tearDown(void);
 extern void test_init(void);
 extern void test_capacity_check(void);
 extern void test_push_back(void);
+extern void test_insert(void);
+extern void test_insertInvalid(void);
 
 
 /*=======Suite Setup=====*/
@@ -75,6 +77,8 @@ int main(void)
   RUN_TEST(test_init, 5);
   RUN_TEST(test_capacity_check, 16);
   RUN_TEST(test_push_back, 39);
+  RUN_TEST(test_insert, 60);
+  RUN_TEST(test_insertInvalid, 91);
 
   return suite_teardown(UnityEnd());
 }

@@ -43,3 +43,13 @@ void insert(vector_t *vector, int value, int index)
         printf("Insert error: invalid index");
     }
 }
+
+int size_vector(vector_t *vector)
+{
+    return vector->size;
+}
+
+int capacity_vector(vector_t *vector)
+{
+    return vector->capacity - vector->size;
+}

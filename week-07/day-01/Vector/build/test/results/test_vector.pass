@@ -16,15 +16,21 @@
   :line: 60
   :message: ''
 - :test: test_insertInvalid
-  :line: 91
+  :line: 93
+  :message: ''
+- :test: test_size
+  :line: 114
+  :message: ''
+- :test: test_capacity
+  :line: 130
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 5
-  :passed: 5
+  :total: 7
+  :passed: 7
   :failed: 0
   :ignored: 0
 :stdout:
-- 'Error: invalid index for this vector'
-:time: 0.006347999908030033
+- 'Insert error: invalid index'
+:time: 0.009278000332415104

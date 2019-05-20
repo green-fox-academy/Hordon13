@@ -19,4 +19,8 @@ void push_back(vector_t *vector, int value);
 
 void insert(vector_t *vector, int value, int index);
 
+int size_vector(vector_t *vector);
+
+int capacity_vector(vector_t *vector);
+
 #endif

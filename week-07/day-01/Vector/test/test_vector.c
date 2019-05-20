@@ -4,36 +4,36 @@
 
 void test_init(void)
 {
-    vector_t myvector;
-    init_vector(&myvector);
+    vector_t myVector;
+    init_vector(&myVector);
 
-    TEST_ASSERT_EQUAL(1, myvector.capacity);
-    TEST_ASSERT_EQUAL(0, myvector.size);
+    TEST_ASSERT_EQUAL(1, myVector.capacity);
+    TEST_ASSERT_EQUAL(0, myVector.size);
 
-    free_vector(&myvector);
+    free_vector(&myVector);
 }
 
 void test_capacity_check(void)
 {
-    vector_t myvector;
-    init_vector(&myvector);
+    vector_t myVector;
+    init_vector(&myVector);
 
-    TEST_ASSERT_EQUAL(0, myvector.size);
-    TEST_ASSERT_EQUAL(1, myvector.capacity);
+    TEST_ASSERT_EQUAL(0, myVector.size);
+    TEST_ASSERT_EQUAL(1, myVector.capacity);
 
-    myvector.size++;
-    capacity_check_vector(&myvector);
+    myVector.size++;
+    capacity_check_vector(&myVector);
 
-    TEST_ASSERT_EQUAL(1, myvector.size);
-    TEST_ASSERT_EQUAL(2, myvector.capacity);
+    TEST_ASSERT_EQUAL(1, myVector.size);
+    TEST_ASSERT_EQUAL(2, myVector.capacity);
 
-    myvector.size++;
-    capacity_check_vector(&myvector);
+    myVector.size++;
+    capacity_check_vector(&myVector);
 
-    TEST_ASSERT_EQUAL(2, myvector.size);
-    TEST_ASSERT_EQUAL(4, myvector.capacity);
+    TEST_ASSERT_EQUAL(2, myVector.size);
+    TEST_ASSERT_EQUAL(4, myVector.capacity);
 
-    free_vector(&myvector);
+    free_vector(&myVector);
 }
 
 void test_push_back(void)
@@ -86,6 +86,8 @@ void test_insert(void)
 
     TEST_ASSERT_EQUAL(8, myVector.capacity);
     TEST_ASSERT_EQUAL(6, myVector.size);
+
+    free_vector(&myVector);
 }
 
 void test_insertInvalid(void)
@@ -105,4 +107,38 @@ void test_insertInvalid(void)
 
     TEST_ASSERT_EQUAL(4, myVector.capacity);
     TEST_ASSERT_EQUAL(4, myVector.size);
+
+    free_vector(&myVector);
+}
+
+void test_size(void)
+{
+    vector_t myVector;
+    init_vector(&myVector);
+
+    push_back(&myVector, 2);
+    push_back(&myVector, 5);
+    push_back(&myVector, 10);
+
+    int size = size_vector(&myVector);
+
+    TEST_ASSERT_EQUAL(3, size);
+
+    free_vector(&myVector);
+}
+
+void test_capacity(void)
+{
+    vector_t myVector;
+    init_vector(&myVector);
+
+    push_back(&myVector, 2);
+    push_back(&myVector, 5);
+    push_back(&myVector, 10);
+
+    int capacity = capacity_vector(&myVector);
+
+    TEST_ASSERT_EQUAL(1, capacity);
+
+    free_vector(&myVector);
 }

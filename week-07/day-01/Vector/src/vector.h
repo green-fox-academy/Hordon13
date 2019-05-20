@@ -13,4 +13,8 @@ void free_vector(vector_t *vector);
 
 void capacity_check_vector(vector_t *vector);
 
+// -------------------- //
+
+void push_back(vector_t *vector, int value);
+
 #endif

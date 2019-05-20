@@ -35,3 +35,23 @@ void test_capacity_check(void)
 
     free_vector(&myvector);
 }
+
+void test_push_back(void)
+{
+    vector_t myVector;
+    init_vector(&myVector);
+
+    push_back(&myVector, 10);
+
+    TEST_ASSERT_EQUAL(10, myVector.data[0]);
+    TEST_ASSERT_EQUAL(1, myVector.size);
+    TEST_ASSERT_EQUAL(1, myVector.capacity);
+
+    push_back(&myVector, 3);
+
+    TEST_ASSERT_EQUAL(10, myVector.data[0]);
+    TEST_ASSERT_EQUAL(3, myVector.data[1]);
+    TEST_ASSERT_EQUAL(2, myVector.size);
+    TEST_ASSERT_EQUAL(2, myVector.capacity);
+
+}

@@ -10,6 +10,7 @@ void init_vector(vector_t *vector)
 
 void free_vector(vector_t *vector)
 {
+    vector->data = NULL;
     free(vector->data);
 }
 
@@ -19,4 +20,11 @@ void capacity_check_vector(vector_t *vector)
         vector->capacity *= 2;
         vector->data = (int *) realloc(vector->data, sizeof(int) * vector->capacity);
     }
+}
+
+void push_back(vector_t *vector, int value)
+{
+    capacity_check_vector(vector);
+    vector->data[vector->size] = value;
+    vector->size++;
 }

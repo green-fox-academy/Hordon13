@@ -68,3 +68,43 @@ void test_capacity_check(void)
     free_vector(&myvector);
 
 }
+
+
+
+void test_push_back(void)
+
+{
+
+    vector_t myVector;
+
+    init_vector(&myVector);
+
+
+
+    push_back(&myVector, 10);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((myVector.data[0])), (((void *)0)), (UNITY_UINT)(46), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((myVector.size)), (((void *)0)), (UNITY_UINT)(47), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((myVector.capacity)), (((void *)0)), (UNITY_UINT)(48), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    push_back(&myVector, 3);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((myVector.data[0])), (((void *)0)), (UNITY_UINT)(52), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((myVector.data[1])), (((void *)0)), (UNITY_UINT)(53), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((myVector.size)), (((void *)0)), (UNITY_UINT)(54), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((myVector.capacity)), (((void *)0)), (UNITY_UINT)(55), UNITY_DISPLAY_STYLE_INT);
+
+
+
+}

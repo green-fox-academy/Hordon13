@@ -101,6 +101,7 @@ lnkd_list_t *search(lnkd_list_t *head, int value)
         if (it->data == value) {
             return it;
         }
+        it = it->ptr;
     }
 
     return NULL;

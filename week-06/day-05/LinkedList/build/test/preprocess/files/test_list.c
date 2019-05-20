@@ -419,11 +419,11 @@ void test_search(void)
 
 
 
+    lnkd_list_t *result = search(head, 10);
 
 
 
-
-    UnityAssertEqualNumber((UNITY_INT)((head->ptr->ptr->ptr->ptr->data)), (UNITY_INT)((search(head, 10)->data)), (((void *)0)), (UNITY_UINT)(215), UNITY_DISPLAY_STYLE_INT);
+    UnityAssertEqualNumber((UNITY_INT)((head->ptr->ptr->ptr->ptr)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(215), UNITY_DISPLAY_STYLE_INT);
 
 
 

@@ -210,10 +210,9 @@ void test_search(void)
     insertAfter(head, head->ptr->ptr, 7);
     insertEnd(head, 7);
 
-    //todo: why it is not working? :(
-    //lnkd_list_t *result = search(head, 10);
+    lnkd_list_t *result = search(head, 10);
 
-    TEST_ASSERT_EQUAL(head->ptr->ptr->ptr->ptr->data, search(head, 10)->data);
+    TEST_ASSERT_EQUAL(head->ptr->ptr->ptr->ptr, result);
 
     freeAll(head);
 }

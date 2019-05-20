@@ -13,8 +13,8 @@ void init_vector(vector_t *vector)
 
 void free_vector(vector_t *vector)
 {
-    vector->data = NULL;
     free(vector->data);
+    vector->data = NULL;
 }
 
 void capacity_check_vector(vector_t *vector)
@@ -120,7 +120,9 @@ void shuffle_vector(vector_t *vector)
         temp.data[i] = vector->data[randomNumbers.data[i]];
     }
 
-    vector->data = temp.data;
+    for (int j = 0; j < vector->size; ++j) {
+        vector->data[j] = temp.data[j];
+    }
 
     free_vector(&temp);
     free_vector(&randomNumbers);
@@ -137,10 +139,12 @@ void unique_vector(vector_t *vector)
         }
     }
 
-    vector->data = unique.data;
+
+    for (int j = 0; j < unique.size; ++j) {
+        vector->data[j] = unique.data[j];
+    }
     vector->size = unique.size;
     capacity_check_vector(vector);
-
     free_vector(&unique);
 }
 

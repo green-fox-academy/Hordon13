@@ -20,6 +20,9 @@ void capacity_check_vector(vector_t *vector)
     if (vector->size >= vector->capacity) {
         vector->capacity *= 2;
         vector->data = (int *) realloc(vector->data, sizeof(int) * vector->capacity);
+    } else if (vector->size >= 2 && vector->size <= vector->capacity / 2) {
+        vector->capacity -= (vector->capacity) / 4;
+        vector->data = (int *) realloc(vector->data, sizeof(int) * vector->capacity);
     }
 }
 
@@ -52,4 +55,19 @@ int size_vector(vector_t *vector)
 int capacity_vector(vector_t *vector)
 {
     return vector->capacity - vector->size;
+}
+
+int empty_vector(vector_t *vector)
+{
+    if (vector->size == 0) {
+        return 1;
+    }
+
+    return 0;
+}
+
+void pop_back(vector_t *vector)
+{
+    vector->size--;
+    capacity_check_vector(vector);
 }

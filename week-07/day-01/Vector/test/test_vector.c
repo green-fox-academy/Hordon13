@@ -142,3 +142,44 @@ void test_capacity(void)
 
     free_vector(&myVector);
 }
+
+void test_empty(void)
+{
+    vector_t myVector;
+    init_vector(&myVector);
+
+    int empty = empty_vector(&myVector);
+
+    TEST_ASSERT_TRUE(empty)
+
+    push_back(&myVector, 2);
+
+    int empty2 = empty_vector(&myVector);
+
+    TEST_ASSERT_FALSE(empty2)
+
+    free_vector(&myVector);
+}
+
+void test_pop_back(void)
+{
+    vector_t myVector;
+    init_vector(&myVector);
+
+    push_back(&myVector, 1);
+    push_back(&myVector, 2);
+    push_back(&myVector, 3);
+    push_back(&myVector, 4);
+    push_back(&myVector, 5);
+
+    TEST_ASSERT_EQUAL(5, size_vector(&myVector));
+    TEST_ASSERT_EQUAL(8, myVector.capacity);
+
+    pop_back(&myVector);
+
+    TEST_ASSERT_EQUAL(4, myVector.data[3]);
+    TEST_ASSERT_EQUAL(4, size_vector(&myVector));
+    TEST_ASSERT_EQUAL(6, myVector.capacity);
+
+    free_vector(&myVector);
+}

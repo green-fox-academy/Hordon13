@@ -24,13 +24,19 @@
 - :test: test_capacity
   :line: 130
   :message: ''
+- :test: test_empty
+  :line: 146
+  :message: ''
+- :test: test_popback
+  :line: 164
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 7
-  :passed: 7
+  :total: 9
+  :passed: 9
   :failed: 0
   :ignored: 0
 :stdout:
 - 'Insert error: invalid index'
-:time: 0.009278000332415104
+:time: 0.009280999656766653

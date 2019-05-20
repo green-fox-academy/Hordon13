@@ -23,4 +23,8 @@ int size_vector(vector_t *vector);
 
 int capacity_vector(vector_t *vector);
 
+int empty_vector(vector_t *vector);
+
+void pop_back(vector_t *vector);
+
 #endif

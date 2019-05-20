@@ -282,3 +282,85 @@ void test_capacity(void)
     free_vector(&myVector);
 
 }
+
+
+
+void test_empty(void)
+
+{
+
+    vector_t myVector;
+
+    init_vector(&myVector);
+
+
+
+    int empty = empty_vector(&myVector);
+
+
+
+    if ((empty)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(153)));}
+
+
+
+    push_back(&myVector, 2);
+
+
+
+    int empty2 = empty_vector(&myVector);
+
+
+
+    if (!(empty2)) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(159)));}
+
+
+
+    free_vector(&myVector);
+
+}
+
+
+
+void test_popback(void)
+
+{
+
+    vector_t myVector;
+
+    init_vector(&myVector);
+
+
+
+    push_back(&myVector, 1);
+
+    push_back(&myVector, 2);
+
+    push_back(&myVector, 3);
+
+    push_back(&myVector, 4);
+
+    push_back(&myVector, 5);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((5)), (UNITY_INT)((size_vector(&myVector))), (((void *)0)), (UNITY_UINT)(175), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((8)), (UNITY_INT)((myVector.capacity)), (((void *)0)), (UNITY_UINT)(176), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    pop_back(&myVector);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((myVector.data[3])), (((void *)0)), (UNITY_UINT)(180), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((size_vector(&myVector))), (((void *)0)), (UNITY_UINT)(181), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((6)), (UNITY_INT)((myVector.capacity)), (((void *)0)), (UNITY_UINT)(182), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    free_vector(&myVector);
+
+}

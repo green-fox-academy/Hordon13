@@ -554,3 +554,43 @@ void test_unique(void)
     free_vector(&myVector);
 
 }
+
+
+
+void test_transform(void)
+
+{
+
+    vector_t myVector;
+
+    init_vector(&myVector);
+
+
+
+    push_back_vector(&myVector, 1);
+
+    push_back_vector(&myVector, 2);
+
+    push_back_vector(&myVector, 3);
+
+    push_back_vector(&myVector, 4);
+
+    push_back_vector(&myVector, 5);
+
+
+
+
+
+    transform(&myVector, &doubleValue);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((myVector.data[0])), (((void *)0)), (UNITY_UINT)(296), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((10)), (UNITY_INT)((myVector.data[4])), (((void *)0)), (UNITY_UINT)(297), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    free_vector(&myVector);
+
+}

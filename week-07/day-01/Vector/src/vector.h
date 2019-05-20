@@ -13,8 +13,6 @@ void free_vector(vector_t *vector);
 
 void capacity_check_vector(vector_t *vector);
 
-// -------------------- //
-
 void push_back_vector(vector_t *vector, int value);
 
 void insert_vector(vector_t *vector, int value, int index);
@@ -34,5 +32,12 @@ int search_vector(vector_t *vector, int value);
 void shuffle_vector(vector_t *vector);
 
 void unique_vector(vector_t *vector);
+
+//visszateresi ertek + (* funkcio) + (parameter)
+void transform(vector_t *vector, void (*func)(int *));
+
+// ---------------------- //
+
+void doubleValue(int *num);
 
 #endif

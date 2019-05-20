@@ -143,3 +143,17 @@ void unique_vector(vector_t *vector)
 
     free_vector(&unique);
 }
+
+void transform(vector_t *vector, void (*func)(int *))
+{
+    for (int i = 0; i < vector->size; ++i) {
+        func(&(vector->data[i]));
+    }
+}
+
+// ---------------------- //
+
+void doubleValue(int *num)
+{
+    *num *= 2;
+}

@@ -278,3 +278,23 @@ void test_unique(void)
 
     free_vector(&myVector);
 }
+
+void test_transform(void)
+{
+    vector_t myVector;
+    init_vector(&myVector);
+
+    push_back_vector(&myVector, 1);
+    push_back_vector(&myVector, 2);
+    push_back_vector(&myVector, 3);
+    push_back_vector(&myVector, 4);
+    push_back_vector(&myVector, 5);
+
+
+    transform(&myVector, &doubleValue);
+
+    TEST_ASSERT_EQUAL(2, myVector.data[0]);
+    TEST_ASSERT_EQUAL(10, myVector.data[4]);
+
+    free_vector(&myVector);
+}

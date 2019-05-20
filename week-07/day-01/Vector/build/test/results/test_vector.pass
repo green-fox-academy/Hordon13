@@ -1,0 +1,20 @@
+---
+:source:
+  :path: test
+  :file: test_vector.c
+:successes:
+- :test: test_init
+  :line: 5
+  :message: ''
+- :test: test_capacity_check
+  :line: 16
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 2
+  :passed: 2
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.006723999977111816

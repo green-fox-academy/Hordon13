@@ -41,13 +41,13 @@ void test_push_back(void)
     vector_t myVector;
     init_vector(&myVector);
 
-    push_back(&myVector, 10);
+    push_back_vector(&myVector, 10);
 
     TEST_ASSERT_EQUAL(10, myVector.data[0]);
     TEST_ASSERT_EQUAL(1, myVector.size);
     TEST_ASSERT_EQUAL(1, myVector.capacity);
 
-    push_back(&myVector, 3);
+    push_back_vector(&myVector, 3);
 
     TEST_ASSERT_EQUAL(10, myVector.data[0]);
     TEST_ASSERT_EQUAL(3, myVector.data[1]);
@@ -62,15 +62,15 @@ void test_insert(void)
     vector_t myVector;
     init_vector(&myVector);
 
-    push_back(&myVector, 2);
-    push_back(&myVector, 5);
-    push_back(&myVector, 10);
-    push_back(&myVector, 15);
+    push_back_vector(&myVector, 2);
+    push_back_vector(&myVector, 5);
+    push_back_vector(&myVector, 10);
+    push_back_vector(&myVector, 15);
 
     TEST_ASSERT_EQUAL(4, myVector.capacity);
     TEST_ASSERT_EQUAL(4, myVector.size);
 
-    insert(&myVector, 7, 2);
+    insert_vector(&myVector, 7, 2);
 
     TEST_ASSERT_EQUAL(7, myVector.data[2]);
     TEST_ASSERT_EQUAL(10, myVector.data[3]);
@@ -79,7 +79,7 @@ void test_insert(void)
     TEST_ASSERT_EQUAL(8, myVector.capacity);
     TEST_ASSERT_EQUAL(5, myVector.size);
 
-    insert(&myVector, 23, 4);
+    insert_vector(&myVector, 23, 4);
 
     TEST_ASSERT_EQUAL(23, myVector.data[4]);
     TEST_ASSERT_EQUAL(15, myVector.data[5]);
@@ -95,15 +95,15 @@ void test_insertInvalid(void)
     vector_t myVector;
     init_vector(&myVector);
 
-    push_back(&myVector, 2);
-    push_back(&myVector, 5);
-    push_back(&myVector, 10);
-    push_back(&myVector, 15);
+    push_back_vector(&myVector, 2);
+    push_back_vector(&myVector, 5);
+    push_back_vector(&myVector, 10);
+    push_back_vector(&myVector, 15);
 
     TEST_ASSERT_EQUAL(4, myVector.capacity);
     TEST_ASSERT_EQUAL(4, myVector.size);
 
-    insert(&myVector, 7, 4);
+    insert_vector(&myVector, 7, 4);
 
     TEST_ASSERT_EQUAL(4, myVector.capacity);
     TEST_ASSERT_EQUAL(4, myVector.size);
@@ -116,9 +116,9 @@ void test_size(void)
     vector_t myVector;
     init_vector(&myVector);
 
-    push_back(&myVector, 2);
-    push_back(&myVector, 5);
-    push_back(&myVector, 10);
+    push_back_vector(&myVector, 2);
+    push_back_vector(&myVector, 5);
+    push_back_vector(&myVector, 10);
 
     int size = size_vector(&myVector);
 
@@ -132,9 +132,9 @@ void test_capacity(void)
     vector_t myVector;
     init_vector(&myVector);
 
-    push_back(&myVector, 2);
-    push_back(&myVector, 5);
-    push_back(&myVector, 10);
+    push_back_vector(&myVector, 2);
+    push_back_vector(&myVector, 5);
+    push_back_vector(&myVector, 10);
 
     int capacity = capacity_vector(&myVector);
 
@@ -152,7 +152,7 @@ void test_empty(void)
 
     TEST_ASSERT_TRUE(empty)
 
-    push_back(&myVector, 2);
+    push_back_vector(&myVector, 2);
 
     int empty2 = empty_vector(&myVector);
 
@@ -166,16 +166,16 @@ void test_pop_back(void)
     vector_t myVector;
     init_vector(&myVector);
 
-    push_back(&myVector, 1);
-    push_back(&myVector, 2);
-    push_back(&myVector, 3);
-    push_back(&myVector, 4);
-    push_back(&myVector, 5);
+    push_back_vector(&myVector, 1);
+    push_back_vector(&myVector, 2);
+    push_back_vector(&myVector, 3);
+    push_back_vector(&myVector, 4);
+    push_back_vector(&myVector, 5);
 
     TEST_ASSERT_EQUAL(5, size_vector(&myVector));
     TEST_ASSERT_EQUAL(8, myVector.capacity);
 
-    pop_back(&myVector);
+    pop_back_vector(&myVector);
 
     TEST_ASSERT_EQUAL(4, myVector.data[3]);
     TEST_ASSERT_EQUAL(4, size_vector(&myVector));
@@ -189,17 +189,17 @@ void test_deleteIndex(void)
     vector_t myVector;
     init_vector(&myVector);
 
-    push_back(&myVector, 1);
-    push_back(&myVector, 2);
-    push_back(&myVector, 3);
-    push_back(&myVector, 4);
-    push_back(&myVector, 5);
+    push_back_vector(&myVector, 1);
+    push_back_vector(&myVector, 2);
+    push_back_vector(&myVector, 3);
+    push_back_vector(&myVector, 4);
+    push_back_vector(&myVector, 5);
 
     TEST_ASSERT_EQUAL(3, myVector.data[2]);
     TEST_ASSERT_EQUAL(5, size_vector(&myVector));
     TEST_ASSERT_EQUAL(8, myVector.capacity);
 
-    deleteIndex(&myVector, 2);
+    deleteIndex_vector(&myVector, 2);
 
     TEST_ASSERT_EQUAL(4, myVector.data[2]);
     TEST_ASSERT_EQUAL(4, size_vector(&myVector));
@@ -213,11 +213,11 @@ void test_search(void)
     vector_t myVector;
     init_vector(&myVector);
 
-    push_back(&myVector, 1);
-    push_back(&myVector, 2);
-    push_back(&myVector, 3);
-    push_back(&myVector, 4);
-    push_back(&myVector, 5);
+    push_back_vector(&myVector, 1);
+    push_back_vector(&myVector, 2);
+    push_back_vector(&myVector, 3);
+    push_back_vector(&myVector, 4);
+    push_back_vector(&myVector, 5);
 
     int index = search_vector(&myVector, 4);
 
@@ -230,3 +230,24 @@ void test_search(void)
     free_vector(&myVector);
 }
 
+void test_shuffle(void)
+{
+    vector_t myVector;
+    init_vector(&myVector);
+
+    push_back_vector(&myVector, 1);
+    push_back_vector(&myVector, 2);
+    push_back_vector(&myVector, 3);
+    push_back_vector(&myVector, 4);
+    push_back_vector(&myVector, 5);
+
+    TEST_ASSERT_EQUAL(1, myVector.data[0]);
+
+    shuffle_vector(&myVector);
+
+    TEST_ASSERT_NOT_EQUAL(1, myVector.data[0]);
+    TEST_ASSERT_EQUAL(8, myVector.capacity);
+    TEST_ASSERT_EQUAL(5, myVector.size);
+
+    free_vector(&myVector);
+}

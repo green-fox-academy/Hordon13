@@ -456,3 +456,47 @@ void test_search(void)
     free_vector(&myVector);
 
 }
+
+
+
+void test_shuffle(void)
+
+{
+
+    vector_t myVector;
+
+    init_vector(&myVector);
+
+
+
+    push_back(&myVector, 1);
+
+    push_back(&myVector, 2);
+
+    push_back(&myVector, 3);
+
+    push_back(&myVector, 4);
+
+    push_back(&myVector, 5);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((myVector.data[0])), (((void *)0)), (UNITY_UINT)(244), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    shuffle_vector(&myVector);
+
+
+
+    if (((1) != (myVector.data[0]))) {} else {UnityFail( ((" Expected Not-Equal")), (UNITY_UINT)((UNITY_UINT)(248)));};
+
+    UnityAssertEqualNumber((UNITY_INT)((8)), (UNITY_INT)((myVector.capacity)), (((void *)0)), (UNITY_UINT)(249), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((5)), (UNITY_INT)((myVector.size)), (((void *)0)), (UNITY_UINT)(250), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    free_vector(&myVector);
+
+}

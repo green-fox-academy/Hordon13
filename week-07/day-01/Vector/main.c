@@ -6,11 +6,19 @@ int main()
     vector_t myVector;
     init_vector(&myVector);
 
-    push_back(&myVector, 2);
-    push_back(&myVector, 5);
-    push_back(&myVector, 10);
-    push_back(&myVector, 15);
+    push_back_vector(&myVector, 1);
+    push_back_vector(&myVector, 2);
+    push_back_vector(&myVector, 3);
+    push_back_vector(&myVector, 4);
+    push_back_vector(&myVector, 5);
 
-    insert(&myVector, 7, 4);
+    shuffle_vector(&myVector);
+
+    for (int i = 0; i < myVector.size; ++i) {
+        printf("%d", myVector.data[i]);
+    }
+
+    free_vector(&myVector);
+
     return 0;
 }

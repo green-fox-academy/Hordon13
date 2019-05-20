@@ -46,6 +46,7 @@ extern void test_empty(void);
 extern void test_pop_back(void);
 extern void test_deleteIndex(void);
 extern void test_search(void);
+extern void test_shuffle(void);
 
 
 /*=======Suite Setup=====*/
@@ -91,6 +92,7 @@ int main(void)
   RUN_TEST(test_pop_back, 164);
   RUN_TEST(test_deleteIndex, 187);
   RUN_TEST(test_search, 211);
+  RUN_TEST(test_shuffle, 233);
 
   return suite_teardown(UnityEnd());
 }

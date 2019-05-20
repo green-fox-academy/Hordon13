@@ -1,6 +1,8 @@
-#include "vector.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
+
+#include "vector.h"
 
 void init_vector(vector_t *vector)
 {
@@ -26,14 +28,14 @@ void capacity_check_vector(vector_t *vector)
     }
 }
 
-void push_back(vector_t *vector, int value)
+void push_back_vector(vector_t *vector, int value)
 {
     capacity_check_vector(vector);
     vector->data[vector->size] = value;
     vector->size++;
 }
 
-void insert(vector_t *vector, int value, int index)
+void insert_vector(vector_t *vector, int value, int index)
 {
     if (index < vector->size) {
         capacity_check_vector(vector);
@@ -66,14 +68,14 @@ int empty_vector(vector_t *vector)
     return 0;
 }
 
-void pop_back(vector_t *vector)
+void pop_back_vector(vector_t *vector)
 {
     vector->data[vector->size - 1] = -1;
     vector->size--;
     capacity_check_vector(vector);
 }
 
-void deleteIndex(vector_t *vector, int index)
+void deleteIndex_vector(vector_t *vector, int index)
 {
     if (index < vector->size) {
         for (int i = index; i < vector->size - 1; ++i) {
@@ -96,4 +98,30 @@ int search_vector(vector_t *vector, int value)
     }
 
     return -1;
+}
+
+void shuffle_vector(vector_t *vector)
+{
+    srand(time(NULL));
+    vector_t randomNumbers;
+    init_vector(&randomNumbers);
+
+    do {
+        int random = rand() % vector->size;
+        if (search_vector(&randomNumbers, random) == -1) {
+            push_back_vector(&randomNumbers, random);
+        }
+    } while (size_vector(&randomNumbers) != vector->size);
+
+    vector_t temp;
+    init_vector(&temp);
+
+    for (int i = 0; i < vector->size; ++i) {
+        temp.data[i] = vector->data[randomNumbers.data[i]];
+    }
+
+    vector->data = temp.data;
+
+    free_vector(&temp);
+    free_vector(&randomNumbers);
 }

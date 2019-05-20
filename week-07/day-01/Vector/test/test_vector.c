@@ -183,3 +183,27 @@ void test_pop_back(void)
 
     free_vector(&myVector);
 }
+
+void test_deleteIndex(void)
+{
+    vector_t myVector;
+    init_vector(&myVector);
+
+    push_back(&myVector, 1);
+    push_back(&myVector, 2);
+    push_back(&myVector, 3);
+    push_back(&myVector, 4);
+    push_back(&myVector, 5);
+
+    TEST_ASSERT_EQUAL(3, myVector.data[2]);
+    TEST_ASSERT_EQUAL(5, size_vector(&myVector));
+    TEST_ASSERT_EQUAL(8, myVector.capacity);
+
+    deleteIndex(&myVector, 2);
+
+    TEST_ASSERT_EQUAL(4, myVector.data[2]);
+    TEST_ASSERT_EQUAL(4, size_vector(&myVector));
+    TEST_ASSERT_EQUAL(6, myVector.capacity);
+
+    free_vector(&myVector);
+}

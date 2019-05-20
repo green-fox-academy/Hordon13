@@ -27,16 +27,19 @@
 - :test: test_empty
   :line: 146
   :message: ''
-- :test: test_popback
+- :test: test_pop_back
   :line: 164
+  :message: ''
+- :test: test_deleteIndex
+  :line: 187
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 9
-  :passed: 9
+  :total: 10
+  :passed: 10
   :failed: 0
   :ignored: 0
 :stdout:
 - 'Insert error: invalid index'
-:time: 0.009280999656766653
+:time: 0.007253999821841717

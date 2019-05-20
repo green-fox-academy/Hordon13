@@ -43,7 +43,8 @@ extern void test_insertInvalid(void);
 extern void test_size(void);
 extern void test_capacity(void);
 extern void test_empty(void);
-extern void test_popback(void);
+extern void test_pop_back(void);
+extern void test_deleteIndex(void);
 
 
 /*=======Suite Setup=====*/
@@ -86,7 +87,8 @@ int main(void)
   RUN_TEST(test_size, 114);
   RUN_TEST(test_capacity, 130);
   RUN_TEST(test_empty, 146);
-  RUN_TEST(test_popback, 164);
+  RUN_TEST(test_pop_back, 164);
+  RUN_TEST(test_deleteIndex, 187);
 
   return suite_teardown(UnityEnd());
 }

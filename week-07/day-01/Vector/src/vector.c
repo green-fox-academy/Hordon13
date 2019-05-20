@@ -68,6 +68,21 @@ int empty_vector(vector_t *vector)
 
 void pop_back(vector_t *vector)
 {
+    vector->data[vector->size - 1] = -1;
     vector->size--;
     capacity_check_vector(vector);
+}
+
+void deleteIndex(vector_t *vector, int index)
+{
+    if (index < vector->size) {
+        for (int i = index; i < vector->size - 1; ++i) {
+            vector->data[i] = vector->data[i + 1];
+        }
+        vector->data[vector->size - 1] = -1;
+        vector->size--;
+        capacity_check_vector(vector);
+    } else {
+        printf("Delete error: invalid index");
+    }
 }

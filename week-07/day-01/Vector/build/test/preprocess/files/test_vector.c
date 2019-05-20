@@ -321,7 +321,7 @@ void test_empty(void)
 
 
 
-void test_popback(void)
+void test_pop_back(void)
 
 {
 
@@ -358,6 +358,54 @@ void test_popback(void)
     UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((size_vector(&myVector))), (((void *)0)), (UNITY_UINT)(181), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((6)), (UNITY_INT)((myVector.capacity)), (((void *)0)), (UNITY_UINT)(182), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    free_vector(&myVector);
+
+}
+
+
+
+void test_deleteIndex(void)
+
+{
+
+    vector_t myVector;
+
+    init_vector(&myVector);
+
+
+
+    push_back(&myVector, 1);
+
+    push_back(&myVector, 2);
+
+    push_back(&myVector, 3);
+
+    push_back(&myVector, 4);
+
+    push_back(&myVector, 5);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((myVector.data[2])), (((void *)0)), (UNITY_UINT)(198), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((5)), (UNITY_INT)((size_vector(&myVector))), (((void *)0)), (UNITY_UINT)(199), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((8)), (UNITY_INT)((myVector.capacity)), (((void *)0)), (UNITY_UINT)(200), UNITY_DISPLAY_STYLE_INT);
+
+
+
+    deleteIndex(&myVector, 2);
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((myVector.data[2])), (((void *)0)), (UNITY_UINT)(204), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((size_vector(&myVector))), (((void *)0)), (UNITY_UINT)(205), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((6)), (UNITY_INT)((myVector.capacity)), (((void *)0)), (UNITY_UINT)(206), UNITY_DISPLAY_STYLE_INT);
 
 
 

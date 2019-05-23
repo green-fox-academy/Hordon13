@@ -69,9 +69,10 @@ int main(void){
       HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET);
     }
 
+    HAL_Delay(200); 
+
     if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4) == 1) {
       counter++;
-      HAL_Delay(200);
     }
   }
 }

@@ -16,10 +16,26 @@ void init_led_pin()
   HAL_GPIO_Init(GPIOF, &led_config);
 }
 
+void init_user_button()
+{
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  GPIO_InitTypeDef button_config;
+
+  button_config.Pin = GPIO_PIN_4;
+  button_config.Mode = GPIO_MODE_INPUT;
+  button_config.Pull = GPIO_NOPULL;
+  button_config.Speed = GPIO_SPEED_FAST;
+
+  HAL_GPIO_Init(GPIOB, &button_config);
+
+}
+
 int main(void){
 
   HAL_Init();
   init_led_pin();
+  init_user_button();
 
   uint8_t counter = 0x00;
 
@@ -53,8 +69,9 @@ int main(void){
       HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET);
     }
 
-    HAL_Delay(500);
-    counter++;
-
+    if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4) == 1) {
+      counter++;
+      HAL_Delay(200);
+    }
   }
 }

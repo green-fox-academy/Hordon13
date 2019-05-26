@@ -2,58 +2,35 @@
 
 Hi there! In this repository you can see how a caterpillar could become a butterfly, or in other words, how a total noob student of humanities could become a junior programmer. Literally step-by-step, since this repo is kind of a code-journal where you can see every single line of code I wrote since day 1 at Green Fox Academy's bootcamp.
 
-## Follow the journey...
+## Follow the journey
 
-* [WEEK #01](https://github.com/green-fox-academy/Hordon13/tree/master/week-01) - Foundation Module
-	* DAY #01 - Team-building
-	* [DAY #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-01/day-02) - GitHub basics
-	* [DAY #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-01/day-03) - First lines of C++
-	* [DAY #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-01/day-04) - Functions, arrays
-	* DAY #05 - Practice
-* [WEEK #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-02) - Foundation Module
-	* [DAY #01](https://github.com/green-fox-academy/Hordon13/tree/master/week-02/day-01) - Pointers
-	* [DAY #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-02/day-02) - Strings, vectors, maps
-	* [DAY #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-02/day-03) - Draw with SDL2
-	* [DAY #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-02/day-03) - Recursion
-	* [DAY #05](https://github.com/green-fox-academy/Hordon13/tree/master/week-02/day-03) - Draw Fractals with Recursion
-* [WEEK #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-03) - Foundation Module
-	* DAY #01 - DOJO, Training
-	* [DAY #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-03/day-02) - File IO
-	* [DAY #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-03/day-03) - Classes
-	* [DAY #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-03/day-03) - Classes 2
-	* DAY #05 - Holyday
-* [WEEK #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-04) - Foundation Module
-	* DAY #01 - Holyday
-	* [DAY #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-04/day-02) - Inheritance
-	* [DAY #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-04/day-03) - Abstract Classes, Multiple Inheritance
-	* [DAY #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-04/day-04) - Unit tests, Google Test
-	* DAY #05 - Trial Exam (score: 95.7%)
-* [WEEK #05]
-	* DAY #01 - Full week project: Wanderer The Game
-	* DAY #02 - Full week project: Wanderer The Game
-	* DAY #03 - Holyday
-	* DAY #04 - Full week project: Wanderer The Game
-	* DAY #05 - EXAM
-* [WEEK #06]
-	* [DAY #01](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-01) - DOJO, Training
-	* [DAY #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-02) - Basics of C
-	* [DAY #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-03) - Structures and custom types
-	* [DAY #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-04) - Dynamic memory allocation
-	* [DAY #05](https://github.com/green-fox-academy/Hordon13/tree/master/week-06/day-05) - Advanced data structures + testing
-* [WEEK #06]
-	* [DAY #01](https://github.com/green-fox-academy/Hordon13/tree/master/week-07/day-01) - Advanced data structures + testing 2.
+* [WEEK #01](https://github.com/green-fox-academy/Hordon13/tree/master/week-01) - Foundation Module | GIT, CLI, Programming basics and Functions
+* [WEEK #02](https://github.com/green-fox-academy/Hordon13/tree/master/week-02) - Foundation Module | Pointers, Data structures, and Drawing
+* [WEEK #03](https://github.com/green-fox-academy/Hordon13/tree/master/week-03) - Foundation Module | File IO and Classes
+* [WEEK #04](https://github.com/green-fox-academy/Hordon13/tree/master/week-04) - Foundation Module | Object Orientation
+* [WEEK #05](https://github.com/Hordon13/wanderer-cpp) - Foundation Module | Wanderer, The Game - full week project
 
-## Technologies I used...
+* [WEEK #06](https://github.com/green-fox-academy/Hordon13/tree/master/week-06) - Orientation Module | Basics of C, Dynamic memory allocation, Data structures + testing
+* [WEEK #07](https://github.com/green-fox-academy/Hordon13/tree/master/week-07) - Orientation Module | Introduction to STM32, Electronics, GPIO, Interrupts
+* [WEEK #08](https://github.com/green-fox-academy/Hordon13/tree/master/week-08) - Orientation Module | Timers, PWM, Serial communications (UART, I2C)
+
+## Sideprojects:
+
+* [Enigma M3 Simulator with GUI](https://github.com/Hordon13/EnigmaM3)
+
+
+## Technologies I used
 
 * at my previous studies:
 	* Praat scripts - It is a powerful tool for phonetics
 	* A little MatLab, R and Python
 	* Basic HTML, CSS and WordPress
 * at GreenFox Academy (so far):
-	* C++
 	* C
-	* Google Test
+	* C++
+	* Google Test, Ceedling
 	* SDL 2
+	* STM32F746G-DISCOVERY microboard
 
 ## More about me in a few words...
 

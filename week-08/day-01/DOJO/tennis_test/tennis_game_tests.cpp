@@ -7,8 +7,7 @@ extern "C" {
 #include "tennis_game_3.h"
 }
 
-struct TennisScore
-{
+struct TennisScore {
     const int player1Score;
     const int player2Score;
     const std::string expectedScore;
@@ -77,7 +76,6 @@ void testAllScores()
         ASSERT_STREQ(score.expectedScore.c_str(), getScore(&tennisGame));
     }
 }
-
 
 TEST(TennisTests, TestTennisGame1)
 {

@@ -2,49 +2,53 @@
 #include <string.h>
 #include <stdlib.h>
 
-tennis_game_3_t create_tennis_game_3(const char *p1n, const char *p2n)
+tennis_game_3_t create_tennis_game_3(const char *player1Name, const char *player2Name)
 {
-    tennis_game_3_t result = {0, 0, calloc(strlen(p1n) + 1, 1), calloc(strlen(p2n) + 1, 1)};
-    strcpy(result.p1n, p1n);
-    strcpy(result.p2n, p2n);
+    tennis_game_3_t result = {0, 0, calloc(strlen(player1Name) + 1, 1), calloc(strlen(player2Name) + 1, 1)};
+    strcpy(result.player1Name, player1Name);
+    strcpy(result.player2Name, player2Name);
     return result;
 }
 
-void won_point_3(tennis_game_3_t *tg, const char *pn)
+void won_point_3(tennis_game_3_t *tennisGame, const char *playerName)
 {
-    strcmp(pn, "player1") ? tg->p2++ : tg->p1++;
+    strcmp(playerName, "player1") ? tennisGame->player2Score++ : tennisGame->player1Score++;
 }
 
-const char * get_score_3(tennis_game_3_t *tg)
+const char *get_score_3(tennis_game_3_t *tennisGame)
 {
-    char *s;
+    char *score;
 
-    if (tg->p1 < 4 && tg->p2 < 4) {
-        static const char *p[] = {"Love", "Fifteen", "Thirty", "Forty"};
-        char ts[20];
-        strcpy(ts, p[tg->p1]);
-        if (tg->p1 == tg->p2) {
-            strcat(ts, "-All");
+    if (tennisGame->player1Score < 4 && tennisGame->player2Score < 4) {
+        static const char *point[] = {"Love", "Fifteen", "Thirty", "Forty"};
+        char tempScore[20];
+        strcpy(tempScore, point[tennisGame->player1Score]);
+        if (tennisGame->player1Score == tennisGame->player2Score) {
+            strcat(tempScore, "-All");
         } else {
-            strcat(ts, "-");
-            strcat(ts, p[tg->p2]);
+            strcat(tempScore, "-");
+            strcat(tempScore, point[tennisGame->player2Score]);
         }
-        s = calloc(strlen(ts) + 1, sizeof(char));
-        strcpy(s, ts);
-        return s;
+        score = calloc(strlen(tempScore) + 1, sizeof(char));
+        strcpy(score, tempScore);
+        return score;
+
     } else {
-        if (tg->p1 == tg->p2)
+        if (tennisGame->player1Score == tennisGame->player2Score)
             return "Deuce";
 
-        char ts[20];
-        (tg->p1 > tg->p2) ? strcpy(ts, tg->p1n) : strcpy(ts, tg->p2n);
+        char tempScore[20];
+        (tennisGame->player1Score > tennisGame->player2Score) ? strcpy(tempScore, tennisGame->player1Name) : strcpy(
+                tempScore, tennisGame->player2Name);
 
-        char ts2[15];
-        ((tg->p1 - tg->p2) * (tg->p1 - tg->p2) == 1) ? strcpy(ts2, "Advantage ") : strcpy(ts2, "Win for ");
+        char tempScore2[15];
+        ((tennisGame->player1Score - tennisGame->player2Score) *
+         (tennisGame->player1Score - tennisGame->player2Score) == 1) ? strcpy(tempScore2, "Advantage ") : strcpy(
+                tempScore2, "Win for ");
 
-        s = calloc(strlen(ts) + strlen(ts2) + 1, sizeof(char));
-        strcpy(s, ts2);
-        strcat(s, ts);
-        return s;
+        score = calloc(strlen(tempScore) + strlen(tempScore2) + 1, sizeof(char));
+        strcpy(score, tempScore2);
+        strcat(score, tempScore);
+        return score;
     }
 }

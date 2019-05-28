@@ -7,8 +7,10 @@
 
 volatile uint32_t startTime;
 volatile uint32_t reactionTime;
+volatile int touchFlag = 0;
 
 RNG_HandleTypeDef random;
+TS_StateTypeDef touchScreen;
 
 static void Error_Handler(void);
 static void SystemClock_Config(void);
@@ -35,56 +37,58 @@ int main(void) {
   init_LCD();
   init_Random();
   BSP_TS_Init(BSP_LCD_GetXSize(), BSP_LCD_GetYSize());
-  TS_StateTypeDef touchScreen;
+  BSP_TS_ITConfig();
 
-  BSP_LCD_DisplayStringAt(0, 124, "REACTION TEST GAME", CENTER_MODE);
+  BSP_LCD_DisplayStringAt(0, 124, (uint8_t *)"REACTION TEST GAME", CENTER_MODE);
   HAL_Delay(1000);
 
-  touchScreen.touchDetected = 0;
   do {
-    BSP_TS_GetState(&touchScreen);
     BSP_LCD_SetFont(&Font12);
-    BSP_LCD_DisplayStringAt(0, 225, "- hold to start -", CENTER_MODE);
+    BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
+    BSP_LCD_DisplayStringAt(0, 225, (uint8_t *)"- touch to start -",
+                            CENTER_MODE);
     HAL_Delay(750);
-    BSP_LCD_SetFont(&Font24);
-    BSP_LCD_Clear(LCD_COLOR_BLACK);
-    BSP_LCD_DisplayStringAt(0, 125, "REACTION TEST GAME", CENTER_MODE);
+    BSP_LCD_SetTextColor(LCD_COLOR_BLACK);
+    BSP_LCD_DisplayStringAt(0, 225, (uint8_t *)"- touch to start -",
+                            CENTER_MODE);
     HAL_Delay(500);
-  } while(!touchScreen.touchDetected);
-
-  BSP_LCD_Clear(LCD_COLOR_BLACK);
+  } while (!touchScreen.touchDetected);
 
   while (1) {
+
     BSP_LCD_Clear(LCD_COLOR_BLACK);
     BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
     BSP_LCD_SetFont(&Font16);
-    BSP_LCD_DisplayStringAt(0, 125, "TOUCH THE SCREEN WHEN IT TURNS GREEN", CENTER_MODE);
+    BSP_LCD_DisplayStringAt(
+        0, 125, (uint8_t *)"TOUCH THE SCREEN WHEN IT TURNS GREEN", CENTER_MODE);
     HAL_Delay(2000);
     BSP_LCD_Clear(LCD_COLOR_BLACK);
     uint32_t delay = HAL_RNG_GetRandomNumber(&random) % 9000;
     HAL_Delay(1000 + delay);
     BSP_LCD_Clear(LCD_COLOR_GREEN);
     startTime = HAL_GetTick();
-    touchScreen.touchDetected = 0;
-    while(!touchScreen.touchDetected){
+    BSP_TS_ResetTouchData(&touchScreen);
+    while (!touchScreen.touchDetected) {
       BSP_TS_GetState(&touchScreen);
     }
     reactionTime = HAL_GetTick() - startTime;
     BSP_LCD_Clear(LCD_COLOR_BLACK);
     BSP_LCD_SetFont(&Font24);
-    BSP_LCD_DisplayStringAt(0, 25, "YOUR REACTION TIME IS:", CENTER_MODE);
+    BSP_LCD_DisplayStringAt(0, 25,
+                            (uint8_t *)"YOUR REACTION TIME IS:", CENTER_MODE);
 
     char result[40];
     BSP_LCD_SetTextColor(LCD_COLOR_LIGHTGREEN);
     sprintf(result, "%u ms", reactionTime);
-		BSP_LCD_DisplayStringAt(0, 125, (uint8_t *) result, CENTER_MODE);
+    BSP_LCD_DisplayStringAt(0, 125, (uint8_t *)result, CENTER_MODE);
     HAL_Delay(1000);
 
     BSP_LCD_SetFont(&Font12);
     BSP_LCD_SetTextColor(LCD_COLOR_GRAY);
-    BSP_LCD_DisplayStringAt(0, 225, "- TOUCH TO REPLAY -", CENTER_MODE);
-    touchScreen.touchDetected = 0;
-    while(!touchScreen.touchDetected){
+    BSP_LCD_DisplayStringAt(0, 225, (uint8_t *)"- TOUCH TO REPLAY -",
+                            CENTER_MODE);
+    BSP_TS_ResetTouchData(&touchScreen);
+    while (!touchScreen.touchDetected) {
       BSP_TS_GetState(&touchScreen);
     }
   }
@@ -131,4 +135,14 @@ static void SystemClock_Config(void) {
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_7) != HAL_OK) {
     Error_Handler();
   }
+}
+
+void EXTI15_10_IRQHandler(void)
+{
+  HAL_GPIO_EXTI_IRQHandler(TS_INT_PIN);
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  touchScreen.touchDetected = 1;
 }

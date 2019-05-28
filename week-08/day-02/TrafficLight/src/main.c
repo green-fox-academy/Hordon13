@@ -2,22 +2,45 @@
 #include "stm32f7xx_it.h"
 #include "stm32746g_discovery.h"
 
-static void SystemClock_Config(void);
+void SystemClock_Config(void);
+
+GPIO_InitTypeDef led_handle_A;
+GPIO_InitTypeDef led_handle_B;
 
 /* the timer's config structure */
-TIM_HandleTypeDef timer_handle;
+TIM_HandleTypeDef timer2_handle;
+
+void init_leds()
+{
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  led_handle_A.Pin = GPIO_PIN_8 | GPIO_PIN_15;
+  led_handle_A.Mode = GPIO_MODE_OUTPUT_PP | GPIO_MODE_OUTPUT_PP;
+  led_handle_A.Pull = GPIO_NOPULL | GPIO_NOPULL;
+  led_handle_A.Speed = GPIO_SPEED_HIGH | GPIO_SPEED_HIGH;
+
+  led_handle_B.Pin = GPIO_PIN_15;
+  led_handle_B.Mode = GPIO_MODE_OUTPUT_PP;
+  led_handle_B.Pull = GPIO_NOPULL;
+  led_handle_B.Speed = GPIO_SPEED_HIGH;
+
+  HAL_GPIO_Init(GPIOA, &led_handle_A);
+  HAL_GPIO_Init(GPIOB, &led_handle_B);
+
+}
 
 void init_timer()
 {
     __HAL_RCC_TIM2_CLK_ENABLE();
 
-    timer_handle.Instance = TIM2;
-    timer_handle.Init.Prescaler = 10800 - 1; // 108000000/10800=10000 -> speed of 1 count-up: 1/10000 sec = 0.1 ms
-    timer_handle.Init.Period = 10000 - 1; // 10000 x 0.1 ms = 1 second period
-    timer_handle.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-    timer_handle.Init.CounterMode = TIM_COUNTERMODE_UP;
+    timer2_handle.Instance = TIM2;
+    timer2_handle.Init.Prescaler = 54000 - 1; // 108000000/10800=10000 -> speed of 1 count-up: 1/10000 sec = 0.5 ms
+    timer2_handle.Init.Period = 24000 - 1; // 120000 x 0.5 ms = 12 second period
+    timer2_handle.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+    timer2_handle.Init.CounterMode = TIM_COUNTERMODE_UP;
 
-    HAL_TIM_Base_Init(&timer_handle);
+    HAL_TIM_Base_Init(&timer2_handle);
 }
 
 int main(void)
@@ -27,14 +50,34 @@ int main(void)
     /* this function call sets the timers input clock to 108 Mhz (=108000000 Hz) */
     SystemClock_Config();
 
-    BSP_LED_Init(LED_GREEN);
+    BSP_LED_Init(LED1);
     init_timer();
+    init_leds();
 
-    /* starting the timer */
-    HAL_TIM_Base_Start(&timer_handle);
+    __HAL_TIM_SET_COUNTER(&timer2_handle, 0);
+
+    /* starting the timers */
+    HAL_TIM_Base_Start(&timer2_handle);
+
+
+    uint32_t timer_value = 0;
 
     while (1) {
+        timer_value = __HAL_TIM_GET_COUNTER(&timer2_handle);
 
+        if (timer_value == 0){
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, GPIO_PIN_RESET);
+          HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET);
+        } else if (timer_value == 6000){
+          HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_RESET);
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+        } else if (timer_value == 12000){
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, GPIO_PIN_SET);
+        } else if (timer_value == 18000){
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+        }
     }
 }
 

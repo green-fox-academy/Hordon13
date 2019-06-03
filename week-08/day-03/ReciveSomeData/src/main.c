@@ -32,12 +32,8 @@ int main (void)
   uint8_t blue;
 
   while (1) {
-    HAL_UART_Receive(&uart_handle, (uint8_t *) command, 3, HAL_MAX_DELAY);
-    if (!strcmp(command, "rgb")) {
-      HAL_UART_Transmit(&uart_handle, "RGB Confiq...", 13, HAL_MAX_DELAY);
-      HAL_UART_Receive(&uart_handle, &red, 3, HAL_MAX_DELAY);
-      HAL_UART_Receive(&uart_handle, &green, 3, HAL_MAX_DELAY);
-      HAL_UART_Receive(&uart_handle, &blue, 3, HAL_MAX_DELAY);
-    }
+    //HAL_UART_Receive(&uart_handle, (uint8_t *) command, 3, HAL_MAX_DELAY);
+    HAL_UART_Transmit(&uart_handle, "RGB Confiq...", 13, HAL_MAX_DELAY);
+    HAL_Delay(500);
   }
 }

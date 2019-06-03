@@ -3,6 +3,7 @@
 #include "stm32746g_discovery.h"
 
 static void SystemClock_Config(void);
+void Error_Handler(void);
 
 /* the timer's config structure */
 TIM_HandleTypeDef timer_handle;

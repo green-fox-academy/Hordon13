@@ -13,6 +13,7 @@ Hi there! In this repository you can see how a caterpillar could become a butter
 * [WEEK #06](https://github.com/green-fox-academy/Hordon13/tree/master/week-06) - Orientation Module | Basics of C, Dynamic memory allocation, Data structures + testing
 * [WEEK #07](https://github.com/green-fox-academy/Hordon13/tree/master/week-07) - Orientation Module | Introduction to STM32, Electronics, GPIO, Interrupts
 * [WEEK #08](https://github.com/green-fox-academy/Hordon13/tree/master/week-08) - Orientation Module | Timers, PWM, Serial communications (UART, I2C)
+* [WEEK #09](https://github.com/green-fox-academy/Hordon13/tree/master/week-09) - Orientation Module | ADC, RTOS and practice
 
 ## Sideprojects:
 

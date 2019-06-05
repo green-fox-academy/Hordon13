@@ -47,6 +47,7 @@ Hi there! In this repository you can see how a caterpillar could become a butter
 
 ## Social
 
+* [GitHub](https://github.com/Hordon13)
 * [LinkedIn](https://www.linkedin.com/in/hordon/)
 * [Facebook](https://www.facebook.com/hordonthedon)
 * [Instagram](https://www.instagram.com/horvthdo_not/)

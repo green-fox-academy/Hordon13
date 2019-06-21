@@ -35,12 +35,16 @@ void myMouseCallback(int event, int x, int y, int flags, void* userdata)
 
 int main(int argc, const char * argv[])
 {
+    std::cout << cv::getBuildInformation() << std::endl;
+    
     cv::line(image, {image.cols/2, image.rows/2}, {image.cols, image.rows/2}, CV_RGB(44, 62, 80), 2);
     cv::circle(image, {image.cols/2, image.rows/2}, 15, CV_RGB(231, 76, 60), -1, 8, 0);
     
     cv::imshow("OpenCV", image);
     cv::setMouseCallback("OpenCV", myMouseCallback);
     cv::waitKey(0);
+
     
     return 0;
 }
+

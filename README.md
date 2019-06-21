@@ -15,6 +15,8 @@ Hi there! In this repository you can see how a caterpillar could become a butter
 * [WEEK #08](https://github.com/green-fox-academy/Hordon13/tree/master/week-08) - Orientation Module | Timers, PWM, Serial communications (UART, I2C)
 * [WEEK #09](https://github.com/green-fox-academy/Hordon13/tree/master/week-09) - Orientation Module | ADC, RTOS and practice
 
+* [WEEK #10](https://github.com/green-fox-academy/Hordon13/tree/master/week-10) - Project Phase | OpenCV, Google Test, SQL
+
 ## Sideprojects:
 
 * [Enigma M3 Simulator with GUI](https://github.com/Hordon13/EnigmaM3)
